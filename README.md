@@ -8,7 +8,7 @@ Quick & easy cut & paste friendly cheat sheet for useful Git terminal commands.
 ### Basic commands
 Should cover 95% of what you'll need
 ```
-git clone
+git clone <url> <optional-new-name>
 git push
 git pull
 git commit
@@ -32,7 +32,7 @@ Turns multiple commits into one, retaining the commit titles into the new commit
 
 ```git rebase <branch> -i```
 
-```git rebase -onto```
+```git rebase -onto <target-branch> <current-branch>```
 
 ~ kind of means distance from now
 
