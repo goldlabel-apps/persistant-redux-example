@@ -7,7 +7,7 @@ Quick & easy cut & paste friendly cheat sheet for useful Git terminal commands.
 
 ### Basic commands
 Should cover 95% of what you'll need
-````
+```
 git clone
 git push
 git pull
