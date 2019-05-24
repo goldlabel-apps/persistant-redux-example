@@ -1,8 +1,43 @@
+
 # Git Fundamentals
 
 [![Rexlabs](./img/rex/rex_ribbon_logo_black.png)](./rexlabs/index.md)  
 
 Quick & easy cut & paste friendly cheat sheet for useful Git terminal commands.
+
+### Basic commands
+Should cover 95% of what you'll need
+````
+git clone
+git push
+git pull
+git commit
+git checkout
+git reset
+git stash
+git diff
+```
+
+### The exciting parts
+```
+git merge 
+git rebase
+```
+
+### What is actually happening?
+
+git merge ...   
+Merging includes the history  
+
+git rebase ... 
+Rebasing rewrites history
+
+
+
+
+
+
+
 
 ### Conventional Commits
 [conventionalcommits.org](https://www.conventionalcommits.org) are a way of 
@@ -16,7 +51,10 @@ Example:
 git commit -m 'feat(react): allow provided config object to extend other configs'
 ```
 
-
+### Delete a branch locally
+```
+git branch -D <branch-name>
+```
 
 ### Clone a repo
 ```
