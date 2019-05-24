@@ -26,18 +26,14 @@ git rebase
 
 ### What is actually happening?
 
-git merge ...   
+> git merge   
 Merging includes the history  
 
-git rebase ... 
+> git rebase 
 Rebasing rewrites history
 
-
-
-
-
-
-
+No fast forward
+```--no-ff```
 
 ### Conventional Commits
 [conventionalcommits.org](https://www.conventionalcommits.org) are a way of 
@@ -50,27 +46,22 @@ Example:
 ```
 git commit -m 'feat(react): allow provided config object to extend other configs'
 ```
-
 ### Delete a branch locally
 ```
 git branch -D <branch-name>
 ```
-
 ### Clone a repo
 ```
 git clone https://github.com/rexlabsio/rex-app.git <optional-new-name>
 ```
-
 ### Create new branch
 ```
 git checkout -b feature/<clubhouse-id>/<describe-you-branch>
 ```
-
 ### Checkout previous branch
 ```
 git checkout -
 ```
-
 ### Stage all changes
 ```
 git add .
