@@ -1,0 +1,8 @@
+{
+  "name": "git-fundamentals",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/listingslab-software/git-fundamentals.git",
+  "author": "weizang-75 <contact@wei-zang.com>",
+  "license": "MIT"
+}
