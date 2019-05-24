@@ -24,6 +24,16 @@ git merge
 git rebase
 ```
 
+### sqaushing
+
+Turns multiple commits into one, retaining the commit titles into the new commit's message
+
+
+-i
+
+~ kind of means distance from now
+
+
 ### What is actually happening?
 
 > git merge   
