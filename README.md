@@ -5,6 +5,16 @@
 
 Quick & easy cut & paste friendly cheat sheet for useful Git terminal commands.
 
+### Getting out of trouble
+
+Reset your branch to a certain commit or point in time 
+Reset is a local thing. Try not to reset remote branches.  
+Look at the commit history, find the commit hash 
+
+```
+git reset <commit-hash>
+```
+
 ### Basic commands
 Should cover 95% of what you'll need
 ```
