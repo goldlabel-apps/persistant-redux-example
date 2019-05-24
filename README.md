@@ -1,6 +1,6 @@
 # Git Fundamentals
 
-[![Rexlabs](../../img/rex/rex_ribbon_logo_black.png)](./rexlabs/index.md)  
+[![Rexlabs](./img/rex/rex_ribbon_logo_black.png)](./rexlabs/index.md)  
 
 Quick & easy cut & paste friendly cheat sheet for useful Git terminal commands.
 
