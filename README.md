@@ -28,8 +28,11 @@ git rebase
 
 Turns multiple commits into one, retaining the commit titles into the new commit's message
 
+### Flags
 
--i
+```git rebase <branch> -i```
+
+```git rebase -onto```
 
 ~ kind of means distance from now
 
