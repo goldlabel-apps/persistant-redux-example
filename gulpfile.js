@@ -19,7 +19,6 @@ exports.openDocs = openDocs;
 
 exports.start = series(serveDocs, openDocs);
 
-
 function copy_build_before_deploy (cb){
     console.log (color('gulp copy_build_before_deploy', 'GREEN'));
     return src('build/**/*')
