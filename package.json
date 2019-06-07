@@ -1,7 +1,7 @@
 {
-  "name": "git-fundamentals",
-  "description": "React shortcuts for agile teams using github",
-  "version": "0.0.3",
+  "name": "agile-pwa",
+  "description": "Shortcuts for agile teams using github",
+  "version": "0.0.4",
   "license": "OSL-3.0",
   "main": "./src/",
   "author": {
@@ -11,11 +11,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build"
+    "deploy": "npm run build && cd ./firebase && firebase deploy"
   },
   "repository": {
     "type": "github",
-    "url": "https://github.com/listingslab-software/git-fundamentals.git"
+    "url": "https://github.com/listingslab-software/agile-pwa"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
