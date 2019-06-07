@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
-// import * as firebase from "firebase/app";
+import * as firebase from "firebase/app";
 import "firebase/auth";
 // import Log from './containers/Log/Log';
 // import Footer from './containers/Footer/Footer';
@@ -17,18 +17,18 @@ const styles = theme => ({});
 class App extends Component {
 
   componentDidMount (){
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     // console.log ('logged in');
-    //   } else {
-    //     // console.log ('NOT logged in');
-    //   }
-    // });
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log ('logged in');
+      } else {
+        console.log ('NOT logged in');
+      }
+    });
   }
 
   componentWillUnmount(){
-    // this.fireBaseListener && this.fireBaseListener();
-    // this.authListener = undefined;
+    this.fireBaseListener && this.fireBaseListener();
+    this.authListener = undefined;
   }
 
   render() {
