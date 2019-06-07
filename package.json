@@ -1,6 +1,6 @@
 {
-  "name": "git-fundamentals",
-  "description": "React shortcuts for agile teams using github",
+  "name": "agile-pwa",
+  "description": "Shortcuts for agile teams using github",
   "version": "0.0.3",
   "license": "OSL-3.0",
   "main": "./src/",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "github",
-    "url": "https://github.com/listingslab-software/git-fundamentals.git"
+    "url": "https://github.com/listingslab-software/agile-pwa"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.2",
