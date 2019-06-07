@@ -22,7 +22,6 @@ exports.openDocs = openDocs;
 
 exports.start = series(serveDocs, openDocs);
 
-
 // gulp.task('openDocs', function(){
 //     gulp.src(__filename)
 //     .pipe(open({uri: 'http://localhost:3333'}));
