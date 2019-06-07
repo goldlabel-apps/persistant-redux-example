@@ -18,6 +18,8 @@
     "url": "https://github.com/listingslab-software/agile-pwa"
   },
   "dependencies": {
+    "@material-ui/core": "^4.0.2",
+    "@material-ui/icons": "^4.0.1",
     "classnames": "^2.2.6",
     "firebase": "^5.8.6",
     "moment": "^2.24.0",
@@ -38,9 +40,9 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-color": "^0.0.2",
+    "gulp-open": "^3.0.1",
     "gulp-rename": "^1.4.0",
-    "gulp-run": "^1.7.1",
-    "gulp-open": "^3.0.1"
+    "gulp-run": "^1.7.1"
   },
   "keywords": [
     "git",
