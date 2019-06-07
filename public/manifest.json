@@ -1,6 +1,6 @@
 {
-  "short_name": "Mood Log",
-  "name": "Healey Mood Log",
+  "short_name": "Agile PWA",
+  "name": "Agile PWA",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,7 +8,7 @@
       "type": "image/x-icon"
     },
     {
-      "src": "png/android_icon.png",
+      "src": "png/icon.png",
       "sizes": "1024x1024",
       "type": "image/png"
     }
