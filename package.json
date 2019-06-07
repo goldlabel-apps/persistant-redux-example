@@ -1,8 +1,29 @@
 {
   "name": "git-fundamentals",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/listingslab-software/git-fundamentals.git",
-  "author": "weizang-75 <contact@wei-zang.com>",
-  "license": "MIT"
+  "description": "Current listingslab docs",
+  "version": "0.0.2",
+  "license": "OSL-3.0",
+  "main": "./src/",
+  "author": {
+    "name": "listingslab",
+    "email": "listingslab@gmail.com"
+  },
+  "repository": {
+    "type": "github",
+    "url": "https://github.com/listingslab-software/git-fundamentals.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-color": "^0.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-run": "^1.7.1",
+    "gulp-open": "^3.0.1"
+  },
+  "keywords": [
+    "git",
+    "agile",
+    "pwa"
+  ]
 }
