@@ -12,7 +12,7 @@ import 'typeface-muli';
 // import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-// import App from './App';
+import {AppShell} from './neo-containers';
 import * as serviceWorker from './serviceWorker';
 
 console.log (`${packageJSON.name} ${packageJSON.version} (${process.env.REACT_APP_ENV})`);
@@ -42,7 +42,7 @@ firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
   <React.Fragment>
-    kduhfuo
+    <AppShell />
   </React.Fragment>
 , document.getElementById('root'));
 serviceWorker.register();
