@@ -1,0 +1,20 @@
+{
+  "short_name": "Mood Log",
+  "name": "Healey Mood Log",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "png/android_icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#9fedd7",
+  "background_color": "#016670"
+}
