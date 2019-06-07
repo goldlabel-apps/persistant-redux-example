@@ -1,11 +1,9 @@
 
-
 const { /*src, dest,*/ series } = require('gulp');
 // const rename = require("gulp-rename");
 const color = require('gulp-color');
 const run = require('gulp-run');
 const open = require('gulp-open');
-
 
 function serveDocs(cb) {
   console.log (color('gulp serveDocs', 'GREEN'));
@@ -19,10 +17,13 @@ function openDocs(cb) {
 }
 exports.openDocs = openDocs;
 
-
 exports.start = series(serveDocs, openDocs);
 
-// gulp.task('openDocs', function(){
-//     gulp.src(__filename)
-//     .pipe(open({uri: 'http://localhost:3333'}));
-// });
+
+function copy_build_before_deploy (cb){
+    console.log (color('gulp copy_build_before_deploy', 'GREEN'));
+    return src('build/**/*')
+            .pipe(dest('firebase/build'));
+}
+
+exports.deploy = series(copy_build_before_deploy);
