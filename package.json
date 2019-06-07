@@ -11,7 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build"
+    "deploy": "npm run build && cd ./firebase && firebase deploy"
   },
   "repository": {
     "type": "github",
