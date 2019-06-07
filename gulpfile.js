@@ -1,7 +1,7 @@
 
 
-const { src, dest, series } = require('gulp');
-const rename = require("gulp-rename");
+const { /*src, dest,*/ series } = require('gulp');
+// const rename = require("gulp-rename");
 const color = require('gulp-color');
 const run = require('gulp-run');
 const open = require('gulp-open');
