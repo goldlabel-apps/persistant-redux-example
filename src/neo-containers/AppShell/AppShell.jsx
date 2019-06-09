@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './AppShell.Style';
@@ -51,7 +52,11 @@ class AppShell extends Component {
     //     console.log ('AppShell');
     // }
     getAppShell () {
-        const {classes} = this.props;
+        const {
+            classes, 
+            store
+        } = this.props;
+        console.log ('getAppShell -> store', store);
         return (
             <React.Fragment>
                 <div className={cn(classes.app)}>
@@ -73,7 +78,7 @@ class AppShell extends Component {
                     <Card className={cn(classes.card, classes.pageObj)}>
                         <CardHeader
                             title={pageObj.title}
-                            subheader={moment(Date.now()).format("dddd, MMMM Do YYYY, h:mm:ss a")}
+                            subheader={moment(Date.now()).format("ddd, MMMM Do, h:mm a")}
                             avatar={
                                 <Avatar 
                                     aria-label={pageObj.avatar.title}
@@ -81,24 +86,16 @@ class AppShell extends Component {
                                     className={cn(classes.avatar)} />
                             }
                         />
-
                         <CardMedia
                             className={cn(classes.media)}
                             image={pageObj.media.path}
                             title={pageObj.media.title}
                         />
-
                         <CardContent>
                             <Typography color="textSecondary" component="p">
-                            This impressive paella is a perfect party dish and a fun meal to cook together with your
-                            guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                            </Typography>
-                            
+                            </Typography>  
                         </CardContent>
-
                     </Card>
-
-
                     <AppBar 
                         position="fixed"                 
                         color={`secondary`} 
@@ -107,7 +104,10 @@ class AppShell extends Component {
                         <IconButton edge="start" color="inherit" aria-label="Open drawer">
                             <MenuIcon />
                         </IconButton>
-                        <Fab color="secondary" aria-label="Add" className={classes.fabButton}>
+                        <Fab 
+                            color="primary" 
+                            aria-label="New Issue" 
+                            className={classes.fabButton}>
                             <AddIcon />
                         </Fab>
                         <div className={classes.grow} />
@@ -136,4 +136,21 @@ class AppShell extends Component {
     }
 }
 
-export default withStyles(styles, { withTheme: true })(AppShell);
+const mapStateToProps = (store) => {
+	return {
+        store
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+        // logUpdateValidity: (bool) => dispatch(logUpdateValidity(bool)),
+	};
+};
+
+export default (
+	connect(
+		mapStateToProps,
+		mapDispatchToProps
+	)(withStyles(styles, { withTheme: true })(AppShell))
+);
