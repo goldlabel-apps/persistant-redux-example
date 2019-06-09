@@ -1,7 +1,7 @@
 {
   "name": "agile-pwa",
   "description": "Shortcuts for agile teams using github",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "license": "OSL-3.0",
   "main": "./src/",
   "author": {
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "deploy": "npm run build && cd ./firebase && firebase deploy"
+    "deploy": "npm run build && gulp deploy && cd ./firebase && firebase deploy"
   },
   "repository": {
     "type": "github",
