@@ -5,6 +5,9 @@ export default theme => ({
     maxWidth: 500,
     margin: `auto`,
   },
+  avatar:{
+    padding: theme.spacing(0.5),
+  },
   bottomAppBar:{
     margin: 'auto',
     maxWidth: 500,

@@ -14,9 +14,7 @@ console.log (`${packageJSON.name} ${packageJSON.version} (${process.env.REACT_AP
 const store = configureStore();
 const getStore = () => { return store; };
 export { getStore };
-
 const persistor = persistStore(store);
-
 
 ReactDOM.render(
   <Provider store={store}>

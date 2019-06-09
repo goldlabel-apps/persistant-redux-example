@@ -1,42 +1,31 @@
 
 import { combineReducers } from 'redux';
+
+import auth from './auth';
+import githubApi from './githubApi';
 import system from './system';
 
 const initialState = {
   updated: Date.now(),
-  top: null,
+  newIssue: null,
+  nav: null,
 }
 
-const topReducer = (state = initialState, action) => {
-  // console.log ('action', action);
-  switch (action.type) {
-        
-    case 'TOP_UPDATE_USER':
-      const { user } = action;
-      if (user === null || !user){
-        return {
-          ...state,
-          user: null,
-        };
-      }
-      const { uid,  displayName, email, photoURL } = action.user
+const top = (state = initialState, action) => {
+  switch (action.type) {   
+    case 'TOP/RESET':
       return {
-        ...state,
-        user: {
-          uid,
-          displayName,
-          email,
-          photoURL,
-        },
+        state,
       };
-
     default:
       return state
   }
 }
 
 const rootReducer = combineReducers({
-  topReducer,
+  top,
+  auth,
+  githubApi,
   system,
 })
 

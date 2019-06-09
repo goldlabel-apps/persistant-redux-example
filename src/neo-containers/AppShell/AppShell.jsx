@@ -15,7 +15,7 @@ import {
     Card,
     CardContent,
     CardHeader,
-    CardMedia,
+    // CardMedia,
     Fab,
     IconButton,
     Toolbar,
@@ -27,6 +27,14 @@ import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
+import IconPuzzle from '../../theme/svg/puzzle.svg';
+
+// 
+import dispatchAction from '../../store/dispatchAction';
+
+import { 
+    NewIssue 
+} from '../index';
 
 
 const siteObj = {
@@ -38,7 +46,7 @@ const pageObj = {
     avatar: {
         type: `png`,
         title: `octocat`,
-        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/octocat.png?alt=media&token=3c50d8c0-1a0c-4549-b36b-b834464c1590`,
+        path: `/png/listingslab.png`,
     },
     media: {
         type: `jpg`,
@@ -54,9 +62,9 @@ class AppShell extends Component {
     getAppShell () {
         const {
             classes, 
-            store
+            // store
         } = this.props;
-        console.log ('getAppShell -> store', store);
+        // console.log ('getAppShell -> store', store);
         return (
             <React.Fragment>
                 <div className={cn(classes.app)}>
@@ -65,13 +73,23 @@ class AppShell extends Component {
                     position="static"
                     className={cn(classes.topAppBar)}>
                     <Toolbar>
-                    <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" className={classes.title}>
-                        {siteObj.siteTitle}
-                    </Typography>
-                    <Button color="inherit">Login</Button>
+                        <IconButton 
+                            edge="start" 
+                            className={classes.menuButton} 
+                            color="inherit" 
+                            aria-label="Home">
+                            <Avatar  className={cn(classes.avatar)} src={IconPuzzle} />
+                        </IconButton>
+                        <Typography variant="h6" className={cn(classes.title)}>
+                            {siteObj.siteTitle}
+                        </Typography>
+                        <Button 
+                            aria-label="Login"
+                            color={`primary`}
+                            variant={`contained`}
+                        >
+                            Login
+                        </Button>
                     </Toolbar>
                 </AppBar>
 
@@ -86,11 +104,11 @@ class AppShell extends Component {
                                     className={cn(classes.avatar)} />
                             }
                         />
-                        <CardMedia
+                        {/* <CardMedia
                             className={cn(classes.media)}
                             image={pageObj.media.path}
                             title={pageObj.media.title}
-                        />
+                        /> */}
                         <CardContent>
                             <Typography color="textSecondary" component="p">
                             </Typography>  
@@ -105,6 +123,11 @@ class AppShell extends Component {
                             <MenuIcon />
                         </IconButton>
                         <Fab 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                dispatchAction({type: `SYSTEM/OPEN/NEWISSUE`});
+                                // console.log ('newIssue');
+                            }}
                             color="primary" 
                             aria-label="New Issue" 
                             className={classes.fabButton}>
@@ -129,6 +152,7 @@ class AppShell extends Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <React.Fragment>
+                    <NewIssue />
                     {this.getAppShell()}
                 </React.Fragment>
             </MuiThemeProvider>
