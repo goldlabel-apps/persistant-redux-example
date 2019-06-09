@@ -1,74 +1,48 @@
 
 export default theme => ({
-  cardInner:{
-    marginLeft: theme.spacing.unit, 
-    marginRight: theme.spacing.unit,
+  app:{
+    flexGrow: 1,
+    maxWidth: 600,
+    margin: `auto`,
   },
-  maxPageWidth:{
-    maxWidth: 400,
+  media: {
+    height: 0,
+    paddingTop: '56.25%', // 16:9
   },
-  white:{
-    color: `white`,
+  menuButton: {
+    marginRight: theme.spacing(2),
   },
-  clearBoth:{
-    clear: 'both',
+  title: {
+    flexGrow: 1,
   },
-  pullLeft:{
-    textAlign: 'left',
+  card:{
+    padding: theme.spacing(1),
   },
-  redBordered:{
-    border: '1px solid red',
+  text: {
+    padding: theme.spacing(2, 2, 0),
+  },
+  paper: {
+    paddingBottom: 50,
+  },
+  list: {
+    marginBottom: theme.spacing(2),
+  },
+  subheader: {
+    backgroundColor: theme.palette.background.paper,
+  },
+  appBar: {
+    top: 'auto',
+    bottom: 0,
   },
   grow: {
     flexGrow: 1,
   },
-  center:{
-    textAlign: 'center'
+  fabButton: {
+    position: 'absolute',
+    zIndex: 1,
+    top: -30,
+    left: 0,
+    right: 0,
+    margin: '0 auto',
   },
-  alignRight:{
-    textAlign: 'right'
-  },
-  alignLeft:{
-    textAlign: 'left'
-  },
-  primaryLight:{
-    color: theme.palette.primary[100],
-  },
-  primary:{
-    color: theme.palette.primary[900],
-  },
-  primaryBG:{
-    background: theme.palette.primary[900],
-  },
-  secondary:{
-    color: theme.palette.secondary[900],
-  },
-  secondaryLight:{
-    color: theme.palette.secondary[100],
-  },
-  friendly:{
-    color: theme.palette.primary[900],
-  },
-  warning:{
-    color: theme.palette.secondary[900],
-  },
-  error:{
-    color: theme.palette.secondary[900],
-  },
-  wrap:{
-    wordWrap: 'break-word',
-  },
-  hiddenText:{
-    fontSize: 1,
-    color: 'white',
-  },
-  menuItem: {
-    // '&:hover': {
-    //   backgroundColor: theme.palette.secondary.main,
-    //   '& $primary, & $icon': {
-    //     color: theme.palette.common.white,
-    //   },
-    // },
-  },
-  icon: {}
 });
