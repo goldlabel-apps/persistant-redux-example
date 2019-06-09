@@ -2,9 +2,28 @@
 export default theme => ({
   app:{
     flexGrow: 1,
-    maxWidth: 600,
+    maxWidth: 500,
     margin: `auto`,
   },
+  bottomAppBar:{
+    margin: 'auto',
+    maxWidth: 500,
+    border: 'none',
+    boxShadow: 'none',
+    borderRadius: 'none',
+  },
+  topAppBar:{
+    border: 'none',
+    boxShadow: 'none',
+    borderRadius: 'none',
+  },
+  pageObj: {
+    border: 'none',
+    boxShadow: 'none',
+    borderRadius: 'none',
+    minHeight: '85vh',
+  },
+
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -17,6 +36,7 @@ export default theme => ({
   },
   card:{
     padding: theme.spacing(1),
+    borderRadius: 'none',
   },
   text: {
     padding: theme.spacing(2, 2, 0),
@@ -31,8 +51,10 @@ export default theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   appBar: {
+    left: 0,
     top: 'auto',
     bottom: 0,
+    
   },
   grow: {
     flexGrow: 1,
