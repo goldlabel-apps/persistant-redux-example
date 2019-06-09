@@ -2,57 +2,29 @@ import packageJSON from '../package.json';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-muli';
-
-// import { configureStore } from './store/configureStore';
-// import { Provider } from 'react-redux';
-// import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { configureStore } from './store/configureStore';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { persistStore } from 'redux-persist';
+import { Provider } from 'react-redux';
 import {AppShell} from './neo-containers';
 import * as serviceWorker from './serviceWorker';
 
 console.log (`${packageJSON.name} ${packageJSON.version} (${process.env.REACT_APP_ENV})`);
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGESENDERID
-};
-firebase.initializeApp(firebaseConfig);
-// 
-// const store = configureStore();
-// const getStore = () => { return store; };
-// export { getStore };
 
-// firebase.firestore(); 
-// const rrfProps = {
-//   firebase,
-//   config: {
-//     userProfile: 'users',
-//     useFirestoreForProfile: true,
-//   },
-//   dispatch: store.dispatch
-// }
+const store = configureStore();
+const getStore = () => { return store; };
+export { getStore };
+
+const persistor = persistStore(store);
 
 
 ReactDOM.render(
-  <React.Fragment>
-    <AppShell />
-  </React.Fragment>
+  <Provider store={store}>
+    <PersistGate
+      loading={null}
+      persistor={persistor}>
+      <AppShell />
+    </PersistGate>
+  </Provider>
 , document.getElementById('root'));
 serviceWorker.register();
-
-
-/*
-<Provider store={store}>
-   <ReactReduxFirebaseProvider {...rrfProps}>
-      <MuiThemeProvider theme={theme}>
-        <App />
-        <React.Fragment>
-          dasudh
-        </React.Fragment>
-      </MuiThemeProvider>
-    </ReactReduxFirebaseProvider>
-  </Provider>
-*/

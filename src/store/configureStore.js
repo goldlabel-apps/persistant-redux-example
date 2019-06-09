@@ -1,26 +1,25 @@
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import reducers from './reducers';
+import rootSaga from './sagas/index';
 
-import { createStore, compose, combineReducers } from 'redux';
-import { reactReduxFirebase, firebaseReducer } from 'react-redux-firebase';
-import { reduxFirestore, firestoreReducer } from 'redux-firestore';
-import firebase from 'firebase/app';
+const persistConfig = {
+  key: "agile-pwa",
+  storage
+};
 
-
-
-const rrfConfig = {
-  userProfile: 'users',
-  useFirestoreForProfile: true,
-}
-
-const createStoreWithFirebase = compose(
-  reactReduxFirebase(firebase, rrfConfig),
-  reduxFirestore(firebase)
-)(createStore)
-
-const rootReducer = combineReducers({
-  firebase: firebaseReducer,
-  firestore: firestoreReducer,
-})
+const rootReducer = persistReducer(persistConfig, reducers);
+const sagaMiddleware = createSagaMiddleware();
+const middleWares = [sagaMiddleware];
 
 export function configureStore () {
-  return createStoreWithFirebase(rootReducer, {});
+  const store = createStore (
+    rootReducer,
+    composeWithDevTools(applyMiddleware(...middleWares)),
+  )
+   sagaMiddleware.run(rootSaga); 
+   return store;
 };
