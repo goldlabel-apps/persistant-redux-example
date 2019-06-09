@@ -2,11 +2,7 @@ import packageJSON from '../package.json';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'typeface-muli';
-// import muiTheme from './theme/mui';
-// import { 
-//   MuiThemeProvider, 
-//   createMuiTheme 
-// } from '@material-ui/core/styles';
+
 // import { configureStore } from './store/configureStore';
 // import { Provider } from 'react-redux';
 // import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
@@ -24,7 +20,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGESENDERID
 };
 firebase.initializeApp(firebaseConfig);
-// const theme = createMuiTheme( muiTheme );
+// 
 // const store = configureStore();
 // const getStore = () => { return store; };
 // export { getStore };
@@ -46,12 +42,6 @@ ReactDOM.render(
   </React.Fragment>
 , document.getElementById('root'));
 serviceWorker.register();
-
-
-
-
-
-
 
 
 /*

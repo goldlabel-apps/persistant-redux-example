@@ -1,7 +1,5 @@
 
 
-const spacing = {
-  "unit": 8
-}
+const spacing = 8;
 
 export default spacing;

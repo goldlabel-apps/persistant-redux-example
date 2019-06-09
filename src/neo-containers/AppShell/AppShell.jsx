@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './AppShell.Style';
+import muiTheme from '../../theme/mui';
+import { 
+  MuiThemeProvider, 
+  createMuiTheme 
+} from '@material-ui/core/styles';
 import {
     AppBar,
     Avatar,
@@ -21,6 +26,8 @@ import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
+
+
 const siteObj = {
     siteTitle: `Agile PWA`,
 };
@@ -29,8 +36,8 @@ const pageObj = {
     title: `Welcome`,
     avatar: {
         type: `png`,
-        title: `Jigsaw Piece`,
-        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/icon.png?alt=media&token=6c465046-cd83-400c-b83c-26d748ed9a0e`,
+        title: `shark`,
+        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/shark.png?alt=media&token=df0caf07-422c-40ed-8536-4d31fb9878a4`,
     },
     media: {
         type: `png`,
@@ -43,12 +50,15 @@ class AppShell extends Component {
     // componentDidMount () {
     //     console.log ('AppShell');
     // }
-    render () {
+    getAppShell () {
         const {classes} = this.props;
         return (
             <React.Fragment>
                 <div className={cn(classes.app)}>
-                <AppBar position="static">
+                <AppBar 
+                    color={`secondary`}
+                    position="static"
+                    className={cn(classes.topAppBar)}>
                     <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
                         <MenuIcon />
@@ -60,7 +70,7 @@ class AppShell extends Component {
                     </Toolbar>
                 </AppBar>
 
-                    <Card className={cn(classes.card)}>
+                    <Card className={cn(classes.card, classes.pageObj)}>
                         <CardHeader
                             title={pageObj.title}
                             subheader={moment(Date.now()).format("dddd, MMMM Do YYYY, h:mm:ss a")}
@@ -79,16 +89,20 @@ class AppShell extends Component {
                         />
 
                         <CardContent>
-                            <Typography variant="body2" color="textSecondary" component="p">
+                            <Typography color="textSecondary" component="p">
                             This impressive paella is a perfect party dish and a fun meal to cook together with your
                             guests. Add 1 cup of frozen peas along with the mussels, if you like.
                             </Typography>
+                            
                         </CardContent>
 
                     </Card>
 
 
-                    <AppBar position="fixed" color="primary" className={classes.appBar}>
+                    <AppBar 
+                        position="fixed"                 
+                        color={`secondary`} 
+                        className={cn(classes.appBar, classes.bottomAppBar)}>
                         <Toolbar>
                         <IconButton edge="start" color="inherit" aria-label="Open drawer">
                             <MenuIcon />
@@ -108,6 +122,16 @@ class AppShell extends Component {
 
                 </div>
             </React.Fragment>
+        );
+    }
+    render (){
+        const theme = createMuiTheme( muiTheme );
+        return (
+            <MuiThemeProvider theme={theme}>
+                <React.Fragment>
+                    {this.getAppShell()}
+                </React.Fragment>
+            </MuiThemeProvider>
         );
     }
 }

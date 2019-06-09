@@ -1,8 +1,7 @@
 /* http://mcg.mbitson.com */
 
 export const secondary = {
-    // darkblue
-    main: '#277cb9',
+    main: '#678894',
 }
 
 export default secondary;
