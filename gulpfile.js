@@ -1,5 +1,5 @@
 
-const { /*src, dest,*/ series } = require('gulp');
+const { src, dest, series } = require('gulp');
 // const rename = require("gulp-rename");
 const color = require('gulp-color');
 const run = require('gulp-run');
@@ -21,8 +21,7 @@ exports.start = series(serveDocs, openDocs);
 
 function copy_build_before_deploy (cb){
     console.log (color('gulp copy_build_before_deploy', 'GREEN'));
-    return src('build/**/*')
-            .pipe(dest('firebase/build'));
+    return src('./build/**/*').pipe(dest('firebase/build'));
 }
 
 exports.deploy = series(copy_build_before_deploy);

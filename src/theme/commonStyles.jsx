@@ -26,7 +26,7 @@ export default theme => ({
 
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '19.53%', // 16:9
   },
   menuButton: {
     marginRight: theme.spacing(2),

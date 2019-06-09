@@ -29,20 +29,20 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 
 const siteObj = {
-    siteTitle: `Agile PWA`,
+    siteTitle: ``,
 };
 
 const pageObj = {
-    title: `Welcome`,
+    title: `Login to Github`,
     avatar: {
         type: `png`,
-        title: `shark`,
-        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/shark.png?alt=media&token=df0caf07-422c-40ed-8536-4d31fb9878a4`,
+        title: `octocat`,
+        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/octocat.png?alt=media&token=3c50d8c0-1a0c-4549-b36b-b834464c1590`,
     },
     media: {
-        type: `png`,
-        title: `Killer PWA`,
-        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/KillerPWA.png?alt=media&token=e854f930-ad3b-4e09-a567-70cef755acf7`,
+        type: `jpg`,
+        title: `Gherkin on a fork`,
+        path: `https://firebasestorage.googleapis.com/v0/b/agile-pwa.appspot.com/o/gherkin-on-a-fork.jpg?alt=media&token=0a9b78de-afc2-4659-8898-f0d34d885460`,
     }
 };
 
