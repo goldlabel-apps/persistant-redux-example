@@ -8,7 +8,7 @@ import {
 //const delay = (ms) => new Promise(res => setTimeout(res, ms));
 
 export function* systemOpenNewIssue(action) {
-    yield console.log ('systemOpenNewIssue', action);
+    // yield console.log ('systemOpenNewIssue', action);
     // yield put({ 
     //     type: 'SYSTEM/UPDATE/ROUTE',
     //     route: action.route,
