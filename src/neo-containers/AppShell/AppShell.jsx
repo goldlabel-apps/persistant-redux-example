@@ -12,7 +12,7 @@ import {
 import {
     AppBar,
     Avatar,
-    Button,
+    // Button,
     Card,
     CardContent,
     CardHeader,
@@ -27,11 +27,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import IconReset from '@material-ui/icons/Replay';
 
 import IconPuzzle from '../../theme/svg/puzzle.svg';
 
 import { 
-    NewIssue 
+    NewIssue,
+    Confirm,
 } from '../index';
 
 
@@ -81,13 +83,24 @@ class AppShell extends Component {
                         <Typography variant="h6" className={cn(classes.title)}>
                             {siteObj.siteTitle}
                         </Typography>
-                        <Button 
-                            aria-label="Login"
-                            color={`primary`}
-                            variant={`contained`}
+                       
+                        <IconButton color="inherit"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                console.log('lasd')
+                                dispatchAction({
+                                    type: `SYSTEM/OPEN/CONFIRM`,
+                                    payload: {
+                                        message: ``,
+                                        onConfirm: () => {
+                                            console.log ('onConfirm')
+                                        }
+                                    }
+                                });
+                            }}
                         >
-                            Login
-                        </Button>
+                            <IconReset />
+                        </IconButton>
                     </Toolbar>
                 </AppBar>
 
@@ -151,6 +164,7 @@ class AppShell extends Component {
             <MuiThemeProvider theme={theme}>
                 <React.Fragment>
                     <NewIssue />
+                    <Confirm />
                     {this.getAppShell()}
                 </React.Fragment>
             </MuiThemeProvider>

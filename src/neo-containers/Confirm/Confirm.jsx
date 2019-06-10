@@ -1,9 +1,10 @@
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
-import { styles } from './NewIssue.Style';
+import { styles } from './Confirm.Style';
 import {
     Dialog,
     DialogTitle,
@@ -14,14 +15,14 @@ import {
     withMobileDialog,
 } from '@material-ui/core/';
 
-class NewIssue extends Component {
+class Confirm extends Component {
     render (){
         const { 
             classes,
-            newIssue,
+            confirm,
             fullScreen,
         } = this.props;
-        if (!newIssue.open){
+        if (!confirm.open){
             return null;
         }
         // console.log ('NewIssue', newIssue);
@@ -35,13 +36,12 @@ class NewIssue extends Component {
                 maxWidth={`md`}
             >
                 <DialogTitle id="new-issue">
-                    {`Create New Issue`}
+                    {`Confirm`}
                 </DialogTitle>
 
                 <DialogContent>
                     <DialogContentText>
-                        A quick way to create a new issue on GitHub is  
-                        useful for capturing ideas and bugs quickly
+                        Are you sure you want to do this?
                     </DialogContentText>
                 </DialogContent>
 
@@ -50,7 +50,7 @@ class NewIssue extends Component {
                     <Button 
                         onClick={(e) => {
                             e.preventDefault();
-                            dispatchAction({type: `SYSTEM/CLOSE/NEWISSUE`});
+                            dispatchAction({type: `SYSTEM/CLOSE/CONFIRM`});
                         }} 
                         color={`secondary`}>
                         No
@@ -61,7 +61,7 @@ class NewIssue extends Component {
                         variant={`contained`}
                         onClick={(e) => {
                             e.preventDefault();
-                            dispatchAction({type: `SYSTEM/CLOSE/NEWISSUE`});
+                            dispatchAction({type: `SYSTEM/CLOSE/CONFIRM`});
                         }} 
                         color={`primary`}>
                         Yes
@@ -75,12 +75,12 @@ class NewIssue extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        newIssue: store.system.newIssue
+        confirm: store.top.confirm
 	};
 };
 
 export default (
 	withMobileDialog()(connect(
-		mapStateToProps, null
-	)(withStyles(styles, { withTheme: true })(NewIssue)))
+		mapStateToProps,null
+	)(withStyles(styles, { withTheme: true })(Confirm)))
 );
