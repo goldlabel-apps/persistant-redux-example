@@ -18,7 +18,7 @@ export function* authStart(payload = {
 }
 
 export function* watchAuth() {
-    yield takeEvery('AUTH_START', authStart);
+    yield takeEvery('AUTH/LOGIN', authStart);
 }
 
 export default function* authSaga() {

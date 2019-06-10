@@ -75,7 +75,7 @@ class Confirm extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        confirm: store.top.confirm
+        confirm: store.system.confirm
 	};
 };
 

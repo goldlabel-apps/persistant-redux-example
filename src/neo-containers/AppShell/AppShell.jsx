@@ -34,6 +34,7 @@ import IconPuzzle from '../../theme/svg/puzzle.svg';
 import { 
     NewIssue,
     Confirm,
+    Login,
 } from '../index';
 
 
@@ -46,7 +47,7 @@ const pageObj = {
     avatar: {
         type: `png`,
         title: `octocat`,
-        path: `/png/listingslab.png`,
+        path: `/png/octocat.png`,
     },
     media: {
         type: `jpg`,
@@ -62,9 +63,9 @@ class AppShell extends Component {
     getAppShell () {
         const {
             classes, 
-            // store
+            user
         } = this.props;
-        // console.log ('getAppShell -> store', store);
+        console.log ('getAppShell -> user', user);
         return (
             <React.Fragment>
                 <div className={cn(classes.app)}>
@@ -121,8 +122,7 @@ class AppShell extends Component {
                             title={pageObj.media.title}
                         /> */}
                         <CardContent>
-                            <Typography color="textSecondary" component="p">
-                            </Typography>  
+                            { user === null ? <Login /> : null }
                         </CardContent>
                     </Card>
                     <AppBar 
@@ -174,7 +174,9 @@ class AppShell extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        store
+        store,
+        auth: store.auth,
+        user: store.auth.user,
 	};
 };
 

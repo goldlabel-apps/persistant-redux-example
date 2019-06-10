@@ -8,6 +8,10 @@ export default theme => ({
   avatar:{
     padding: theme.spacing(0.5),
   },
+  textField: {
+    marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
+  },
   bottomAppBar:{
     margin: 'auto',
     maxWidth: 500,
