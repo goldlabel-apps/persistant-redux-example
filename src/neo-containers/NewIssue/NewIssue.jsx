@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './NewIssue.Style';
@@ -20,36 +21,37 @@ class NewIssue extends Component {
             newIssue,
             fullScreen,
         } = this.props;
-        let isOpen = false;
-        if (newIssue !== null){
-            isOpen = true;
-        } else{
+        if (!newIssue.open){
             return null;
         }
-        console.log ('NewIssue', newIssue);
+        // console.log ('NewIssue', newIssue);
         return (
             <Dialog
                 className={cn(classes.newIssue)}
                 fullScreen={fullScreen}
-                open={isOpen}
-                onClose={()=>{}}
+                open={true}
+                onClose={() => dispatchAction({type: `SYSTEM/CLOSE/NEWISSUE`})}
                 aria-labelledby="new-issue"
+                maxWidth={`md`}
             >
                 <DialogTitle id="new-issue">
-                    {`New Issue`}
+                    {`Create New Issue`}
                 </DialogTitle>
 
                 <DialogContent>
                     <DialogContentText>
-                        Let Google help apps determine location. This means sending anonymous location data to
-                        Google, even when no apps are running.
+                        A quick way to create a new issue on GitHub is  
+                        useful for capturing ideas and bugs quickly
                     </DialogContentText>
                 </DialogContent>
 
                 <DialogActions>
                     
                     <Button 
-                        onClick={()=>{}} 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            dispatchAction({type: `SYSTEM/CLOSE/NEWISSUE`});
+                        }} 
                         color={`secondary`}>
                         No
                     </Button>
@@ -57,7 +59,10 @@ class NewIssue extends Component {
                     <Button 
                         autoFocus
                         variant={`contained`}
-                        onClick={((e)=>{console.log (e)})} 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            dispatchAction({type: `SYSTEM/CLOSE/NEWISSUE`});
+                        }} 
                         color={`primary`}>
                         Yes
                     </Button>
