@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './Login.Style';
-// import muiTheme from '../../theme/mui';
-// import {
-//     Typography,
-// } from '@material-ui/core/';
+import {
+    Button,
+    TextField,
+    Grid,
+} from '@material-ui/core/';
 // import moment from 'moment';
 // import MenuIcon from '@material-ui/icons/Menu';
 // import AddIcon from '@material-ui/icons/Add';
@@ -14,12 +15,55 @@ import { styles } from './Login.Style';
 // import MoreIcon from '@material-ui/icons/MoreVert';
 
 class Login extends Component {
+
+    // login = (credentials) => {
+    //     {
+    //         type: 'AUTH/LOGIN'
+    //     }
+    // }
+
     render (){
         const { classes } = this.props;
         return (
-            <div className={cn(classes.login)}>
-                {`Login`}
-            </div>
+            <form
+                name={`login`} 
+                className={cn(classes.login)} 
+                noValidate
+                autoComplete="off">
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={5}>
+                        <TextField
+                            className={cn(classes.textField)}
+                            fullWidth
+                            autoFocus
+                            required
+                            id={`username`}
+                            label={`Username`}
+                            variant="outlined"
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={5}>
+                        <TextField
+                            className={cn(classes.textField)}
+                            fullWidth
+                            required
+                            id={`password`}
+                            label={`Password`}
+                            variant="outlined"
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={2}>
+                        <Button    
+                            fullWidth
+                            className={cn(classes.loginBtn)}
+                            variant={`contained`}
+                            color={`primary`}
+                            aria-label={`login`}>
+                                Login
+                        </Button>
+                    </Grid>
+                </Grid>
+            </form>
         );
     }
 }
