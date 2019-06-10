@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './AppShell.Style';
@@ -28,9 +29,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import IconPuzzle from '../../theme/svg/puzzle.svg';
-
-// 
-import dispatchAction from '../../store/dispatchAction';
 
 import { 
     NewIssue 
@@ -166,15 +164,9 @@ const mapStateToProps = (store) => {
 	};
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-        // logUpdateValidity: (bool) => dispatch(logUpdateValidity(bool)),
-	};
-};
-
 export default (
 	connect(
 		mapStateToProps,
-		mapDispatchToProps
+        null
 	)(withStyles(styles, { withTheme: true })(AppShell))
 );

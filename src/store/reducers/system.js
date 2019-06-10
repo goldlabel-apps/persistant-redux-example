@@ -6,22 +6,12 @@ export default function system (state = {
 }, action ) {
   switch (action.type) {
         
-    case 'SYSTEM_BOOT_START':
+    case 'SYSTEM/OPEN/NEWISSUE':
       return {
         ...state,
         updated: Date.now(),
         booting: true,
       };
-
-    case 'SYSTEM_BOOT_END':
-      return {
-        ...state,
-        updated: Date.now(),
-        booting: false,
-      };
-
-    case 'SYSTEM_BOOT':
-      return state;
 
     default:
       return state;

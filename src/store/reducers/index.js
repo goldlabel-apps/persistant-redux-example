@@ -12,11 +12,27 @@ const initialState = {
 }
 
 const top = (state = initialState, action) => {
+  // console.log('top reducer', action);
   switch (action.type) {   
-    case 'TOP/RESET':
+    case 'SYSTEM/OPEN/NEWISSUE':
       return {
-        state,
+        ...state,
+        updated: Date.now(),
+        newIssue: {
+          open: true
+        }
       };
+    
+    case 'SYSTEM/CLOSE/NEWISSUE':
+      return {
+        ...state,
+        updated: Date.now(),
+        newIssue: {
+          open: false
+        }
+      };
+      
+
     default:
       return state
   }
