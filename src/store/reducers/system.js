@@ -1,5 +1,5 @@
 
-export default function system (state = {
+const initialState = {
   updated: Date.now(),
   newIssue: {
     open: false,
@@ -7,7 +7,9 @@ export default function system (state = {
   confirm: {
     open: false,
   },
-}, action ) {
+};
+
+export default function system (state = initialState, action ) {
 
   // console.log (action)
   switch (action.type) {
@@ -29,6 +31,10 @@ export default function system (state = {
           open: false
         }
       };
+
+    case 'STARTOVER':
+        // console.log('USER STARTOVER', state);
+        return initialState;
 
     default:
       return state;

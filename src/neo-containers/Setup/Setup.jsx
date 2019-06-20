@@ -12,9 +12,9 @@ import {
     CardHeader,
     Tooltip,
 } from '@material-ui/core/';
-import IconLogout from '@material-ui/icons/ExitToApp';
+import IconRestart from '@material-ui/icons/Refresh';
+import dispatchAction from '../../store/dispatchAction';
 import { Orgs } from './Orgs';
-
 
 class Setup extends Component {
 
@@ -23,7 +23,7 @@ class Setup extends Component {
             classes,
             user,
         } = this.props;
-        // console.log ('user', user.orgs)
+        console.log ('orgsHidden', user.orgsHidden)
         return (
             <div className={cn(classes.setup)}>
                 <Card className={cn(classes.card, classes.hundredHigh)}>
@@ -37,16 +37,16 @@ class Setup extends Component {
                                 className={cn(classes.avatar)} />
                         }
                         action={
-                            <Tooltip title={`Logout`}>
+                            <Tooltip title={`Start Over`}>
                                 <IconButton
                                     color={`inherit`}
-                                    aria-label={`Logout`}
+                                    aria-label={`Start Over`}
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        console.log (e);
+                                        dispatchAction({type:`STARTOVER`});
                                     }}
                                 >
-                                    <IconLogout />
+                                    <IconRestart />
                                 </IconButton>
                             </Tooltip>
                         }

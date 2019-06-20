@@ -11,8 +11,12 @@ const initialState = {
 }
 
 const top = (state = initialState, action) => {
-  // console.log('top reducer', action);
+  // console.log('top reducer', action.type);
   switch (action.type) {   
+    case 'STARTOVER':
+      // console.log(state, initialState);
+      return initialState
+
     default:
       return state
   }
@@ -25,5 +29,4 @@ const rootReducer = combineReducers({
   system,
   user,
 })
-
 export default rootReducer;

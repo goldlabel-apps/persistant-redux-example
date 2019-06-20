@@ -1,5 +1,5 @@
 
-export default function user (state = {
+const initialState = {
   updated: Date.now(),
   username: `noobie2019`,
   email: `noobie2019@listingslab.com`,
@@ -12,9 +12,19 @@ export default function user (state = {
     {
       id: `1111-2222-3333`,
       name: `The 2nd one`,
+    },
+    {
+      id: `1111-2222-3333`,
+      name: `Lorem Ipsum`,
+    },
+    {
+      id: `1111-2222-3333`,
+      name: `dolar imet`,
     }
   ],
-}, action ) {
+};
+
+export default function user (state = initialState, action ) {
 
   switch (action.type) {
     
@@ -32,6 +42,10 @@ export default function user (state = {
             updated: Date.now(),
             username: newUsername
         };
+
+    case 'STARTOVER':
+        // console.log('USER STARTOVER', state);
+        return initialState;
 
     default:
       return state;

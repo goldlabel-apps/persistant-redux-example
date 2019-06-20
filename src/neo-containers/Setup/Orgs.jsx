@@ -10,23 +10,23 @@ import {
 } from '@material-ui/core/';
 import IconHide from '@material-ui/icons/HighlightOff';
 export const Orgs = (props) => {
-    console.log ('Orgs', props.orgs);
+    // console.log ('Orgs', props.orgs);
     const { orgs, classes } = props;
     return (
         <React.Fragment>
-            <Card className={cn(classes.cardx)}>
+            <Card className={cn(classes.orgCard)}>
                 <CardHeader
-                    title={`Orgs`}
+                    title={`Your orgs`}
                     // subheader={`Number?`}
                     action={
-                        <Tooltip title={`Hide Orgs`}>
+                        <Tooltip title={`Hide your orgs`}>
                             <IconButton 
                                 edge={`start`}
                                 color={`inherit`}
-                                aria-label={`Hide Orgs`}
+                                aria-label={`Hide your orgs`}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    console.log (e);
+                                    console.log ('Hide your orgs');
                                 }}
                             >
                                 <IconHide />
