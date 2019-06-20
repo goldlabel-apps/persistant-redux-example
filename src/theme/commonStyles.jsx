@@ -5,6 +5,9 @@ export default theme => ({
     maxWidth: 500,
     margin: `auto`,
   },
+  hundredHigh: {
+    minHeight: '100vh',
+  },
   avatar:{
     padding: theme.spacing(0.5),
   },
@@ -24,13 +27,6 @@ export default theme => ({
     boxShadow: 'none',
     borderRadius: 'none',
   },
-  pageObj: {
-    border: 'none',
-    boxShadow: 'none',
-    borderRadius: 'none',
-    minHeight: '85vh',
-  },
-
   media: {
     height: 0,
     paddingTop: '19.53%', // 16:9
@@ -44,6 +40,8 @@ export default theme => ({
   card:{
     padding: theme.spacing(1),
     borderRadius: 'none',
+    border: 'none',
+    boxShadow: 'none',
   },
   text: {
     padding: theme.spacing(2, 2, 0),
