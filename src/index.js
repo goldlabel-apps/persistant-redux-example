@@ -24,5 +24,6 @@ ReactDOM.render(
       <AppShell />
     </PersistGate>
   </Provider>
-, document.getElementById('root'));
+, document.getElementById('github'));
+
 serviceWorker.register();

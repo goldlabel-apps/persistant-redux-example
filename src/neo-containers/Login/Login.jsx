@@ -16,11 +16,9 @@ import {
 
 class Login extends Component {
 
-    // login = (credentials) => {
-    //     {
-    //         type: 'AUTH/LOGIN'
-    //     }
-    // }
+    validate = () => {
+        console.log ('isValid ')
+    }
 
     render (){
         const { classes } = this.props;
@@ -40,6 +38,13 @@ class Login extends Component {
                             id={`username`}
                             label={`Username`}
                             variant="outlined"
+                            onKeyPress={(e) => {
+                                console.log(`Pressed keyCode ${e.key}`);
+                                if (e.key === 'Enter') {
+                                    // Do code here
+                                    e.preventDefault();
+                                }
+                            }}
                         />
                     </Grid>
                     <Grid item xs={12} sm={5}>
