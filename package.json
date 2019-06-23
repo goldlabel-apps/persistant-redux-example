@@ -1,7 +1,7 @@
 {
   "name": "agile-pwa",
-  "description": "App for agile teams using github",
-  "version": "0.1.7",
+  "description": "Agile PWA for Github Teams",
+  "version": "0.1.8",
   "license": "OSL-3.0",
   "main": "./src/",
   "author": {
@@ -9,9 +9,9 @@
     "email": "listingslab@gmail.com"
   },
   "scripts": {
+    "deploy": "clear && npm run build && gulp deploy && cd ./firebase && firebase deploy",
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "clear && npm run build && gulp deploy && cd ./firebase && firebase deploy"
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "github",
