@@ -12,12 +12,14 @@ export const styles = theme => ({
     },
     githubLogoGrid: {
         textAlign: 'center',
-        
+    },
+    siteName: {
+        textAlign: 'center'
     },
     githubLogo: {
         margin: 'auto',
         paddingTop: theme.spacing(5),
-        paddingBottom: theme.spacing(3),
+        paddingBottom: theme.spacing(),
         width: 75,
         height: 75,
     }

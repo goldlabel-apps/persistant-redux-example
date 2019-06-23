@@ -14,8 +14,8 @@ const initialState = {
       media: `youtube`,
     },
     loginPage:{
-      title: `Sign in`,
-      subTitle: null,
+      title: `Agile PWA`,
+      subTitle: `Sign in to your github account`,
       media: `github`,
     }
   }

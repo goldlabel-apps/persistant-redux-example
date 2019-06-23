@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
@@ -55,7 +55,7 @@ class AppShell extends Component {
                                 <Fab 
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        firebase.auth().signOut();
+                                        // firebase.auth().signOut();
                                         dispatchAction({type: `STARTOVER`});
                                     }}
                                     color="primary" 
