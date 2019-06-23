@@ -1,19 +1,16 @@
 
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './LoginForm.Style';
 import githubLogo from '../../theme/svg/github.svg'
 import {
     Button,
-    TextField,
     Grid,
+    TextField,
+    Typography,
 } from '@material-ui/core/';
-// import moment from 'moment';
-// import MenuIcon from '@material-ui/icons/Menu';
-// import AddIcon from '@material-ui/icons/Add';
-// import SearchIcon from '@material-ui/icons/Search';
-// import MoreIcon from '@material-ui/icons/MoreVert';
 
 class LoginForm extends Component {
 
@@ -22,7 +19,11 @@ class LoginForm extends Component {
     }
 
     render (){
-        const { classes } = this.props;
+        const { 
+            classes,
+            loginPage,
+        } = this.props;
+        // console.log ('loginPage', loginPage);
         return (
             <form
                 name={`login`} 
@@ -31,11 +32,19 @@ class LoginForm extends Component {
                 autoComplete="off">
                 <Grid container spacing={2}>
                     <Grid item xs={12} className={cn(classes.githubLogoGrid)}>
-                    <img 
-                        className={cn(classes.githubLogo)}
-                        alt={`Github Logo`}
-                        src={githubLogo}
-                    />
+                        <img 
+                            className={cn(classes.githubLogo)}
+                            alt={`Github Logo`}
+                            src={githubLogo}
+                        />
+                    </Grid>
+                    <Grid item xs={12} className={cn(classes.siteName)}>
+                        <Typography variant={`h5`}>
+                            {loginPage.title}
+                        </Typography>
+                        <Typography variant={`body1`}>
+                            {loginPage.subTitle}
+                        </Typography>
                     </Grid>
                     <Grid item xs={12} sm={4}>
                         <TextField
@@ -81,4 +90,16 @@ class LoginForm extends Component {
     }
 }
 
-export default withStyles(styles, { withTheme: true })(LoginForm);
+const mapStateToProps = (store) => {
+	return {
+        store,
+        loginPage: store.system.content.loginPage,
+	};
+};
+
+export default (
+	connect(
+		mapStateToProps,
+        null
+	)(withStyles(styles, { withTheme: true })(LoginForm))
+);
