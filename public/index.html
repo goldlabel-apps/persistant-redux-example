@@ -8,6 +8,34 @@
     <title>Agile PWA</title>
     <meta name="theme-color" content="#abd4d8" />
     <link rel="apple-touch-icon" href="/icon.png">
+
+    <meta itemprop="name" content="Agile PWA">
+    <meta name="Agile PWA">
+    <meta name="description" content="If your team develops software on Github, you may find Agile PWA useful. It's a Progressive Web App from Listingslab Software">
+    <meta name="keywords" content="Github, Firebase, React, PWA, Listingslab">
+
+    <meta property="og:site_name" content="Agile PWA">
+    <meta property="og:title" content="Agile PWA">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://agile-pwa.listingslab.com">
+    <meta property="og:image" content="/icon.png">
+	  <meta property="og:description" content="Progressive Web App for Engineering Teams using Github">
+    
+    <meta name="twitter:site" content="https://agile-pwa.listingslab.com">
+    <meta name="twitter:title" content="Agile PWA">
+    <meta name="twitter:card" content="">
+    <meta name="twitter:description" content="Progressive Web App for Engineering Teams using Github">
+    <meta name="twitter:creator" content="listigslab">
+    <meta name="twitter:image" content="/icon.png">
+    
+    <meta name="geo.region" content="AU-QLD" />
+    <meta name="geo.placename" content="Caboolture" />
+    <meta name="geo.position" content="-27.211579;153.107658" />
+    <meta name="ICBM" content="-27.211579, 153.107658" />
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="true"/>
+
     <style>
       html { 
         height: 100%; 
@@ -26,20 +54,38 @@
       :focus {
         outline:none;
       }
-      .github-logo-container{
+      .agiliepwa-logo-container{
         margin-top: 40vh;
       }
-      .github-animated-logo{ 
+      .site-title h1{
+        color: white;
+        font-weight: normal;
+        /* padding-top: 25px; */
+        font-size: 1.5rem;
+        /* border: 1px solid white; */
+        text-align: center;
+      }
+
+      .site-title p{
+        color: white;
+        font-weight: normal;
+        /* padding-top: 25px; */
+        font-size: 0.8rem;
+        /* border: 1px solid white; */
+        text-align: center;
+      }
+
+      .agiliepwa-animated-logo{ 
         position: relative; 
         width: 125px; 
         height: 125px; 
         margin: auto; 
       }
-      .github-animated-logo-settings{ 
-        animation: settings-spin infinite 2s linear; 
+      .agiliepwa-animated-logo-settings{ 
+        animation: settings-spin infinite 3s linear; 
         position: absolute; 
-        top: 40px; 
-        left: 35px;
+        right: 0; 
+        top: 0;
       }
       @keyframes settings-spin {
         from { transform: rotate(0deg); }
@@ -51,31 +97,39 @@
     <noscript>
       How're we going with Google Lighthouse audit?
     </noscript>
-    <div id="github">
-      <!-- <div class="github-wrap">
-        <div class="github-content">
-          <div class="github-logo-container">
-            <div class="github-animated-logo">
-              <div class="github-animated-logo-settings">
-                <img
-                  src="/refresh.svg"
-                  alt="spinning settings"
-                  width="75"
-                  height="75"
-                />
+    <div id="agiliepwa">
+      <div class="agiliepwa-wrap">
+        <div class="agiliepwa-content">
+          <div class="agiliepwa-logo-container">
+            <div class="agiliepwa-animated-logo">
+              <div class="agiliepwa-animated-logo-settings">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path fill="#203c51" d="M35.3 12.7C32.41 9.8 28.42 8 24 8 15.16 8 8.02 15.16 8.02 24S15.16 40 24 40c7.45 0 13.69-5.1 15.46-12H35.3c-1.65 4.66-6.07 8-11.3 8-6.63 0-12-5.37-12-12s5.37-12 12-12c3.31 0 6.28 1.38 8.45 3.55L26 22h14V8l-4.7 4.7z"/></svg>
               </div>
-              <div>
-                <img
-                  src="/icon.png"
-                  alt="the logo"
-                  width="150"
-                  height="150"
-                />
+              <div>                
+                <svg width="121px" height="119px" viewBox="0 0 121 119" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g id="github" fill="#fff">
+                          <path d="M60.609,0.431 C27.262,0.431 0.221,27.466 0.221,60.818 C0.221,87.5 17.524,110.134 41.518,118.121 C44.536,118.68 45.644,116.81 45.644,115.215 C45.644,113.776 45.588,109.018 45.562,103.973 C28.762,107.625 25.217,96.848 25.217,96.848 C22.47,89.868 18.512,88.012 18.512,88.012 C13.033,84.264 18.925,84.34 18.925,84.34 C24.988,84.766 28.182,90.565 28.182,90.565 C33.568,99.795 42.309,97.127 45.755,95.585 C46.297,91.683 47.861,89.017 49.589,87.509 C36.176,85.984 22.075,80.804 22.075,57.666 C22.075,51.073 24.434,45.686 28.298,41.457 C27.671,39.936 25.604,33.794 28.883,25.476 C28.883,25.476 33.954,23.854 45.493,31.667 C50.31,30.329 55.476,29.658 60.608,29.634 C65.739,29.657 70.909,30.328 75.735,31.667 C87.262,23.854 92.325,25.476 92.325,25.476 C95.612,33.794 93.546,39.936 92.919,41.457 C96.79,45.686 99.134,51.073 99.134,57.666 C99.134,80.861 85.007,85.966 71.56,87.462 C73.726,89.335 75.656,93.011 75.656,98.644 C75.656,106.724 75.586,113.228 75.586,115.216 C75.586,116.823 76.674,118.706 79.734,118.114 C103.714,110.12 120.996,87.491 120.996,60.819 C120.996,27.466 93.959,0.431 60.609,0.431 Z" id="Path"></path>
+                          <path d="M23.093,87.135 C22.96,87.436 22.488,87.526 22.058,87.319 C21.62,87.122 21.374,86.714 21.516,86.413 C21.646,86.104 22.119,86.018 22.556,86.224 C22.995,86.42 23.245,86.834 23.093,87.135 L23.093,87.135 Z" id="Path" fill-rule="nonzero"></path>
+                          <path d="M25.54,89.863 C25.252,90.129 24.688,90.006 24.307,89.584 C23.911,89.162 23.838,88.6 24.13,88.328 C24.427,88.062 24.973,88.187 25.368,88.607 C25.763,89.033 25.84,89.592 25.54,89.863 L25.54,89.863 Z" id="Path" fill-rule="nonzero"></path>
+                          <path d="M27.92,93.34 C27.55,93.598 26.944,93.358 26.57,92.82 C26.2,92.283 26.2,91.638 26.579,91.381 C26.953,91.123 27.55,91.356 27.929,91.887 C28.298,92.434 28.298,93.078 27.92,93.34 L27.92,93.34 Z" id="Path" fill-rule="nonzero"></path>
+                          <path d="M31.182,96.701 C30.851,97.066 30.146,96.967 29.63,96.469 C29.102,95.983 28.955,95.291 29.286,94.926 C29.622,94.561 30.331,94.664 30.85,95.158 C31.375,95.645 31.535,96.34 31.182,96.701 L31.182,96.701 Z" id="Path" fill-rule="nonzero"></path>
+                          <path d="M35.682,98.652 C35.536,99.125 34.857,99.34 34.173,99.138 C33.489,98.931 33.043,98.376 33.181,97.9 C33.323,97.423 34.005,97.199 34.694,97.414 C35.376,97.621 35.824,98.17 35.682,98.652 L35.682,98.652 Z" id="Path" fill-rule="nonzero"></path>
+                          <path d="M40.625,99.014 C40.642,99.512 40.062,99.924 39.344,99.934 C38.622,99.95 38.037,99.547 38.03,99.057 C38.03,98.553 38.597,98.145 39.319,98.133 C40.036,98.119 40.625,98.52 40.625,99.014 L40.625,99.014 Z" id="Path" fill-rule="nonzero"></path>
+                          <path d="M45.223,98.23 C45.309,98.716 44.81,99.214 44.097,99.347 C43.396,99.476 42.747,99.175 42.658,98.695 C42.571,98.197 43.079,97.697 43.779,97.568 C44.493,97.445 45.132,97.736 45.223,98.23 L45.223,98.23 Z" id="Path" fill-rule="nonzero"></path>
+                      </g>
+                  </g>
+                </svg>
               </div>
+
+              <div class="site-title">
+                  <h1>Agile PWA</h1>
+                  <p>Progressive Web App for Github Teams</p>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-      </div> -->
+      </div>
     </div>
   </body>
 </html>

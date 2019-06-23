@@ -24,6 +24,6 @@ ReactDOM.render(
       <AppShell />
     </PersistGate>
   </Provider>
-, document.getElementById('github'));
+, document.getElementById('agiliepwa'));
 
 serviceWorker.register();
