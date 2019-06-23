@@ -7,18 +7,18 @@ import {
     takeEvery,
 } from 'redux-saga/effects';
 
-function githubApiLogin (email, password) {
-    // const user = getStore().getState().auth.user;
-    // const token = user.refreshToken;
-    // console.log ('githubApiCall', token);
-    return axios.request({
-        url: 'https://api.github.com/',
-        method: 'GET',
-        // headers:{
-        //     'Authorization': 'token ' + token,
-        // }
-    });
-}
+// function githubApiLogin (email, password) {
+//     // const user = getStore().getState().auth.user;
+//     // const token = user.refreshToken;
+//     // console.log ('githubApiCall', token);
+//     return axios.request({
+//         url: 'https://api.github.com/',
+//         method: 'GET',
+//         // headers:{
+//         //     'Authorization': 'token ' + token,
+//         // }
+//     });
+// }
 
 
 function githubApiCall (callParams) {
