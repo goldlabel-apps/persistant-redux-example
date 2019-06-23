@@ -13,7 +13,7 @@ export const styles = theme => ({
         padding: theme.spacing(1),
         borderRadius: 'none',
         border: 'none',
-        // boxShadow: 'none',
+        boxShadow: 'none',
     },
 
 
