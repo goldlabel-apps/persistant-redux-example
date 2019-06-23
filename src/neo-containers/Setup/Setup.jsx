@@ -14,21 +14,30 @@ import {
 } from '@material-ui/core/';
 import IconRestart from '@material-ui/icons/ExitToAppRounded';
 import dispatchAction from '../../store/dispatchAction';
+// import { githubApiGetOrgs } from '../../store/sagas/githubApi';
 // import { Orgs } from './Orgs';
 
 class Setup extends Component {
 
     componentDidMount (){
+        dispatchAction({type: `GITHUBAPI/GET/ORGS` });
         // dispatchAction({type:`GITHUB/API/PING`});
-        
+        // const {
+        //     orgs,
+        // } = this.props;
+        // console.log(orgs);
+        // if (orgs === null){
+        //     /// dispatchAction({type:`GITHUBAPI/GET/ORGS`});
+        // }
     }
 
     render (){
         const { 
             classes,
             user,
+            orgs,
         } = this.props;
-        console.log ('Get orgs');
+        // console.log (orgs);
         return (
             <div className={cn(classes.setup)}>
                 <Card className={cn(classes.card, classes.hundredHigh)}>
@@ -59,7 +68,9 @@ class Setup extends Component {
                     />
                     <CardContent>
                        {/* <Orgs orgs={user.orgs} classes={classes} /> */}
-                       Orgs
+
+                       { JSON.stringify(orgs) }
+                       
                     </CardContent>
 
                 </Card>
@@ -71,6 +82,7 @@ class Setup extends Component {
 const mapStateToProps = (store) => {
 	return {
         user: store.auth.user,
+        orgs: store.githubApi.orgs,
 	};
 };
 

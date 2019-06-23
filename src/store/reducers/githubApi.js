@@ -1,25 +1,25 @@
 
 export default function githubApi (state = {
   updated: Date.now(),
-  orgs: null,
+  orgs: {
+    loading: false,
+    loaded: false,
+    orgsArr: []
+  },
 }, action ) {
 
   switch (action.type) {
 
-    case 'GITHUBAPI/GET/ORGS/START':
-      console.log ('GITHUBAPI/GET/ORGS/START', action);
+    case 'GITHUBAPI/ORGS/START/LOADING':
+      console.log ('GITHUBAPI/ORGS/START/LOADING');
       return {
           ...state,
           updated: Date.now(),
+          orgs: {
+            ...state.orgs,
+            loading: true,
+          }
       };
-        
-    case 'GITHUBAPI/GET/ORGS':
-        console.log ('reducer -> githubApi -> GITHUBAPI/GET/ORGS', action);
-
-        return {
-            ...state,
-            updated: Date.now(),
-        };
 
     case 'TOP/RESET':
         return state;

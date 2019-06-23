@@ -5,43 +5,44 @@ import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './FirebaseUIAuth.Style';
 import cn from 'classnames';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+// import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import {
     Card,
-    CardContent,
+    // CardContent,
     Typography,
 } from '@material-ui/core/';
+import { Formik } from 'formik';
 
 class LoginStatus extends Component {
 
-  state = {
-    isSignedIn: false,
-  };
+  // state = {
+  //   isSignedIn: false,
+  // };
 
-  uiConfig = {
-    signInOptions: [
-      firebase.auth.GithubAuthProvider.PROVIDER_ID,
-    ],
-    callbacks: {
-      signInSuccessWithAuthResult: () => false
-    }
-  };
+  // uiConfig = {
+  //   signInOptions: [
+  //     firebase.auth.GithubAuthProvider.PROVIDER_ID,
+  //   ],
+  //   callbacks: {
+  //     signInSuccessWithAuthResult: () => false
+  //   }
+  // };
 
   componentDidMount() {
-    this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
-        (user) => {
-          this.setState({isSignedIn: !!user});
-          if (user !== null){
-            dispatchAction({type: `AUTH/USER_UPATE`, user});
-          }
-        }
-    );
+    // this.unregisterAuthObserver = firebase.auth().onAuthStateChanged(
+    //     (user) => {
+    //       this.setState({isSignedIn: !!user});
+    //       if (user !== null){
+    //         dispatchAction({type: `AUTH/USER_UPATE`, user});
+    //       }
+    //     }
+    // );
   }
   
   componentWillUnmount() {
-    this.unregisterAuthObserver();
+    // this.unregisterAuthObserver();
   }
 
   render (){
@@ -59,12 +60,12 @@ class LoginStatus extends Component {
           <Typography variant={`body1`} className={cn(classes.login)}>
             {store.system.content.loginPage.subTitle}
           </Typography>
-          <CardContent>
+          {/* <CardContent>
             <StyledFirebaseAuth 
               uiConfig={this.uiConfig} 
               firebaseAuth={firebase.auth()} 
             />
-          </CardContent>
+          </CardContent> */}
         </Card>
       </div>
     );    
