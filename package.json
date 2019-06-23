@@ -1,7 +1,7 @@
 {
   "name": "agile-pwa",
   "description": "Agile PWA for Github Teams",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "license": "OSL-3.0",
   "main": "./src/",
   "author": {
@@ -24,6 +24,7 @@
     "classnames": "^2.2.6",
     "firebase": "^5.8.6",
     "formik": "^1.5.7",
+    "gulp-open": "^3.0.1",
     "gulp-run": "^1.7.1",
     "moment": "^2.24.0",
     "react": "^16.8.4",

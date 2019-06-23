@@ -14,17 +14,16 @@ import {
     AppBar,
     Card,
     Fab,
+    IconButton,
     Toolbar,
     Tooltip,
 } from '@material-ui/core/';
-// import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Refresh';
-// import SearchIcon from '@material-ui/icons/Search';
-// import MoreIcon from '@material-ui/icons/MoreVert';
+import MoreIcon from '@material-ui/icons/MoreVert';
 
 import { 
     NewIssue,
-    FirebaseUIAuth,
+    LoginForm,
     Setup,
 } from '../index';
 
@@ -36,23 +35,22 @@ class AppShell extends Component {
             classes, 
             user
         } = this.props;
-        // console.log ('getAppShell -> user', user);
-        
         return (
             <React.Fragment>
                 <div className={cn(classes.app)}>
                 <Card className={cn(classes.card, classes.hundredHigh)}>
-                    { user === null ? <FirebaseUIAuth /> : <Setup /> }
-                </Card>
-                        
+                    { user === null ? 
+                        <LoginForm />
+                    : 
+                        <Setup /> 
+                    }
+                </Card> 
                     <AppBar 
+                        className={cn(classes.appBar, classes.bottomAppBar)}
                         position="fixed"                 
                         color={`secondary`} 
-                        className={cn(classes.appBar, classes.bottomAppBar)}>
+                    >
                         <Toolbar>
-                            {/* <IconButton edge="start" color="inherit" aria-label="Open drawer">
-                                <MenuIcon />
-                            </IconButton> */}
                             <Tooltip title={`START OVER`}>
                                 <Fab 
                                     onClick={(e) => {
@@ -67,12 +65,12 @@ class AppShell extends Component {
                                 </Fab>
                             </Tooltip>
                             <div className={classes.grow} />
-                            {/* <IconButton color="inherit">
-                                <SearchIcon />
-                            </IconButton>
-                            <IconButton edge="end" color="inherit">
+                            <IconButton 
+                                edge={`end`}
+                                color={`inherit`}
+                            >
                                 <MoreIcon />
-                            </IconButton> */}
+                            </IconButton> 
                         </Toolbar>
                     </AppBar>
 
@@ -85,8 +83,7 @@ class AppShell extends Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <React.Fragment>
-                    <NewIssue />
-                    
+                    <NewIssue />                
                     {this.getAppShell()}
                 </React.Fragment>
             </MuiThemeProvider>
