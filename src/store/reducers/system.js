@@ -14,8 +14,8 @@ const initialState = {
       media: `youtube`,
     },
     loginPage:{
-      title: `Login`,
-      subTitle: `You will be connecting your Github account.`,
+      title: `Sign in`,
+      subTitle: null,
       media: `github`,
     }
   }
@@ -45,7 +45,6 @@ export default function system (state = initialState, action ) {
       };
 
     case 'STARTOVER':
-        // console.log('USER STARTOVER', state);
         return initialState;
 
     default:

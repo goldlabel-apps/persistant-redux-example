@@ -1,29 +1,23 @@
 
-export default function auth (state = {
+const initialState = {
   updated: Date.now(),
-  authing: false,
   user: null,
-}, action ) {
+};
+
+export default function auth (state = initialState, action ) {
 
   switch (action.type) {
+
+    case 'AUTH/USER_UPATE':
+      // console.log ('authReducer -> AUTH/USER_UPATE', state, action);
+      return {
+        ...state,
+        updated: Date.now(),
+        user: action.user
+      };
         
-    case 'AUTH_START':
-      console.log ('authReducer -> AUTH_START', action);
-      return {
-        ...state,
-        updated: Date.now(),
-        authing: true,
-      };
-
-    case 'AUTH_END':
-      return {
-        ...state,
-        updated: Date.now(),
-        authing: false,
-      };
-
-    case 'TOP/RESET':
-      return state;
+    case 'STARTOVER':
+      return initialState;
 
     default:
       return state;

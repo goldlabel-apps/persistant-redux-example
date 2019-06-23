@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
@@ -13,13 +14,13 @@ import {
     AppBar,
     Card,
     Fab,
-    IconButton,
     Toolbar,
+    Tooltip,
 } from '@material-ui/core/';
-import MenuIcon from '@material-ui/icons/Menu';
+// import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Refresh';
-import SearchIcon from '@material-ui/icons/Search';
-import MoreIcon from '@material-ui/icons/MoreVert';
+// import SearchIcon from '@material-ui/icons/Search';
+// import MoreIcon from '@material-ui/icons/MoreVert';
 
 import { 
     NewIssue,
@@ -35,7 +36,7 @@ class AppShell extends Component {
             classes, 
             user
         } = this.props;
-        console.log ('getAppShell -> user', user);
+        // console.log ('getAppShell -> user', user);
         
         return (
             <React.Fragment>
@@ -49,27 +50,29 @@ class AppShell extends Component {
                         color={`secondary`} 
                         className={cn(classes.appBar, classes.bottomAppBar)}>
                         <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="Open drawer">
-                            <MenuIcon />
-                        </IconButton>
-                        <Fab 
-                            onClick={(e) => {
-                                e.preventDefault();
-                                dispatchAction({type: `STARTOVER`});
-                                // console.log ('newIssue');
-                            }}
-                            color="primary" 
-                            aria-label="STARTOVER" 
-                            className={classes.fabButton}>
-                            <AddIcon />
-                        </Fab>
-                        <div className={classes.grow} />
-                        <IconButton color="inherit">
-                            <SearchIcon />
-                        </IconButton>
-                        <IconButton edge="end" color="inherit">
-                            <MoreIcon />
-                        </IconButton>
+                            {/* <IconButton edge="start" color="inherit" aria-label="Open drawer">
+                                <MenuIcon />
+                            </IconButton> */}
+                            <Tooltip title={`START OVER`}>
+                                <Fab 
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        firebase.auth().signOut();
+                                        dispatchAction({type: `STARTOVER`});
+                                    }}
+                                    color="primary" 
+                                    aria-label="STARTOVER" 
+                                    className={classes.fabButton}>
+                                    <AddIcon />
+                                </Fab>
+                            </Tooltip>
+                            <div className={classes.grow} />
+                            {/* <IconButton color="inherit">
+                                <SearchIcon />
+                            </IconButton>
+                            <IconButton edge="end" color="inherit">
+                                <MoreIcon />
+                            </IconButton> */}
                         </Toolbar>
                     </AppBar>
 
