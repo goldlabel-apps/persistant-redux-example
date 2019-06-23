@@ -4,22 +4,17 @@ const initialState = {
   username: `noobie2019`,
   email: `noobie2019@listingslab.com`,
   orgsHidden: false,
-  orgs:[],
-  orgsFake: [
+  orgs: [
     {
-      id: `dasuhd';as;f9q39UY^%*^`,
+      id: `cJMkPDXWSW29ZuvqT9n2`,
       name: `first one`,
-    },
-    {
-      id: `1111-2222-3333`,
-      name: `The 2nd one`,
     },
     {
       id: `1111-2222-3333`,
       name: `Lorem Ipsum`,
     },
     {
-      id: `1111-2222-3333`,
+      id: `1111-2222-3334`,
       name: `dolar imet`,
     }
   ],
