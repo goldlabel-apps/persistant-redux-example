@@ -23,7 +23,6 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 
 import { 
     NewIssue,
-    Confirm,
     FirebaseUIAuth,
     Setup,
 } from '../index';
@@ -84,7 +83,7 @@ class AppShell extends Component {
             <MuiThemeProvider theme={theme}>
                 <React.Fragment>
                     <NewIssue />
-                    <Confirm />
+                    
                     {this.getAppShell()}
                 </React.Fragment>
             </MuiThemeProvider>
