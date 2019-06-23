@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './Setup.Style';
 import {
-    Avatar,
+//    Avatar,
     IconButton,
     Card,
     CardContent,
@@ -30,12 +30,12 @@ class Setup extends Component {
                     <CardHeader
                         title={user.username}
                         subheader={user.email}
-                        avatar={
-                            <Avatar 
-                                aria-label={`GitHub`}
-                                src={`/png/octocat.png`} 
-                                className={cn(classes.avatar)} />
-                        }
+                        // avatar={
+                        //     <Avatar 
+                        //         aria-label={`GitHub`}
+                        //         src={`/png/octocat.png`} 
+                        //         className={cn(classes.avatar)} />
+                        // }
                         action={
                             <Tooltip title={`Start Over`}>
                                 <IconButton

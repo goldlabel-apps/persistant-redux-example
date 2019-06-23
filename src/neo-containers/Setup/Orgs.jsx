@@ -16,7 +16,7 @@ export const Orgs = (props) => {
         <React.Fragment>
             <Card className={cn(classes.orgCard)}>
                 <CardHeader
-                    title={`Your orgs`}
+                    title={`orgs`}
                     // subheader={`Number?`}
                     action={
                         <Tooltip title={`Hide your orgs`}>

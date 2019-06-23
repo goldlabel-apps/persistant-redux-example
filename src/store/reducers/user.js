@@ -4,7 +4,8 @@ const initialState = {
   username: `noobie2019`,
   email: `noobie2019@listingslab.com`,
   orgsHidden: false,
-  orgs: [
+  orgs:[],
+  orgsFake: [
     {
       id: `dasuhd';as;f9q39UY^%*^`,
       name: `first one`,
