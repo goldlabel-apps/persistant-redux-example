@@ -3,24 +3,15 @@ import commonStyles from "../../theme/commonStyles";
 
 export const styles = theme => ({
     ...commonStyles(theme),
-    login:{
+    loginForm:{
         // border: '1px solid red',
+        padding: theme.spacing(),
     },
-    loginBtn:{
-        marginTop: theme.spacing(1.2),
-        padding: theme.spacing(1.7),
+    rememberText:{
+        paddingTop: theme.spacing(1.25),
     },
-    githubLogoGrid: {
-        textAlign: 'center',
-    },
-    siteName: {
-        textAlign: 'center'
-    },
-    githubLogo: {
-        margin: 'auto',
-        paddingTop: theme.spacing(5),
-        paddingBottom: theme.spacing(),
-        width: 75,
-        height: 75,
+    rememberHelp:{
+        paddingLeft: theme.spacing(1.25),
+        paddingTop: theme.spacing(1.25),
     }
 });

@@ -6,7 +6,9 @@ import { configureStore } from './store/configureStore';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { persistStore } from 'redux-persist';
 import { Provider } from 'react-redux';
-import {AppShell} from './neo-containers';
+import {
+  AppShell
+} from './neo-containers';
 import * as serviceWorker from './serviceWorker';
 
 console.log (`${packageJSON.name} ${packageJSON.version} (${process.env.REACT_APP_ENV})`);
@@ -18,12 +20,10 @@ const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <PersistGate
-      loading={null}
-      persistor={persistor}>
+    <PersistGate persistor={persistor}>
       <AppShell />
     </PersistGate>
   </Provider>
-, document.getElementById('github'));
+, document.getElementById('agiliepwa'));
 
 serviceWorker.register();

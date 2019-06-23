@@ -1,7 +1,7 @@
 // import history from '../history';
 
 import { 
-    put, 
+    // put, 
     takeEvery, 
     all 
 } from 'redux-saga/effects';
@@ -10,20 +10,16 @@ import {
 //     yield console.log ('user', user)
 // }
 
-export function* authStart(payload = {
-    username: `username`,
-    password: `password`
-}) {
-    console.log ('authSaga -> authStart', payload);
-    yield put({ 
-        type: 'GITHUB/API/AUTH',
-        payload,
-    })
+export function* authUpdate (payload) {
+    yield console.log ('authSaga -> authUpdate', payload);
+    // yield put({ 
+    //     type: 'GITHUB/API/AUTH',
+    //     payload,
+    // })
 }
 
 export function* watchAuth() {
-    yield takeEvery('AUTH/LOGIN', authStart);
-    // yield takeEvery('AUTH/USER_UPATE', authUserUpdate); 
+    yield takeEvery('AUTH/UPDATE', authUpdate);
 }
 
 export default function* authSaga() {

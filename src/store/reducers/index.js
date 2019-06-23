@@ -1,9 +1,6 @@
 import firebase from 'firebase/app';
 import { combineReducers } from 'redux';
 import auth from './auth';
-import githubApi from './githubApi';
-import system from './system';
-import user from './user';
 
 const initialState = {
   updated: Date.now(),
@@ -21,10 +18,11 @@ firebase.initializeApp({
 
 
 const top = (state = initialState, action) => {
+  
   // console.log('top reducer', action.type);
+  
   switch (action.type) {   
     case 'STARTOVER':
-      // console.log(state, initialState);
       return initialState
 
     default:
@@ -34,9 +32,7 @@ const top = (state = initialState, action) => {
 
 const rootReducer = combineReducers({
   top,
-  auth,
-  githubApi,
-  system,
-  user,
+  auth
 })
+
 export default rootReducer;
