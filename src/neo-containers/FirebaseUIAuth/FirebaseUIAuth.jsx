@@ -4,45 +4,29 @@ import { connect } from 'react-redux';
 import muiTheme from '../../theme/mui';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './FirebaseUIAuth.Style';
-import cn from 'classnames';
+// import cn from 'classnames';
 import { 
     MuiThemeProvider, 
     createMuiTheme 
 } from '@material-ui/core/styles';
-import ScreenFirebaseUI from './ScreenFirebaseUI';
+import LoginStatus from './LoginStatus';
 
 class FirebaseUIAuth extends Component {
 
-    componentDidMount () {
+    // componentDidMount () {
         // this.runDocsify(null);
-    }
-
-    runDocsify = (e) => {
-        const script = document.createElement(`script`);
-        script.src = `//unpkg.com/docsify/lib/docsify.min.js`;
-        script.async = true;
-        document.body.appendChild(script);
-    }
+    // }
 
     render (){
+        // const { 
+        //     classes,
+        //     content
+        // } = this.props;
         const theme = createMuiTheme( muiTheme );
-        const { 
-            classes,
-            docsifyObj
-        } = this.props;
-        const {
-            authed,
-            user,
-        } = docsifyObj;
+        // console.log ('theme', theme);
         return (
             <MuiThemeProvider theme={theme}>
-                <div className={cn(classes.docsify)}>
-                    {authed && user !== null ? 
-                        <div>U R Authed.</div> 
-                    : 
-                        <ScreenFirebaseUI runDocsify={this.runDocsify}/> 
-                    }                    
-                </div>
+`               <LoginStatus />
             </MuiThemeProvider>
         );
     }
@@ -50,7 +34,8 @@ class FirebaseUIAuth extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        docsifyObj: store.docsify.docsifyObj,
+        content: store.system.content
+        // docsifyObj: store.docsify.docsifyObj,
 	};
 };
 

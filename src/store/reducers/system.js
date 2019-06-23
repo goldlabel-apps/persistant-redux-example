@@ -7,6 +7,18 @@ const initialState = {
   confirm: {
     open: false,
   },
+  content: {
+    userPage:{
+      title: `User Page`,
+      subTitle: `Do user shit`,
+      media: `youtube`,
+    },
+    loginPage:{
+      title: `Login`,
+      subTitle: `You will be connecting your Github account.`,
+      media: `github`,
+    }
+  }
 };
 
 export default function system (state = initialState, action ) {

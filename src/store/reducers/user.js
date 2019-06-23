@@ -1,23 +1,28 @@
 
 const initialState = {
   updated: Date.now(),
-  username: `noobie2019`,
-  email: `noobie2019@listingslab.com`,
-  orgsHidden: false,
+  user: null,
+  page: {
+    requireAuth: true,
+    authTitle: `Restricted Content`,
+    authInstruction: `Sign in with Github`,
+  },
   orgs: [
     {
+      name: `your company`,
       id: `cJMkPDXWSW29ZuvqT9n2`,
-      name: `first one`,
     },
     {
-      id: `1111-2222-3333`,
       name: `Lorem Ipsum`,
+      id: `1111-2222-3333`,
+      
     },
     {
+      name: `cJMkPDXWSW29ZuvqT9n2`,
       id: `1111-2222-3334`,
-      name: `dolar imet`,
     }
   ],
+  orgsHidden: false,
 };
 
 export default function user (state = initialState, action ) {
