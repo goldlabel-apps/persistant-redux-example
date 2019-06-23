@@ -17,14 +17,14 @@ import {
     Toolbar,
 } from '@material-ui/core/';
 import MenuIcon from '@material-ui/icons/Menu';
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@material-ui/icons/Refresh';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import { 
     NewIssue,
     Confirm,
-    // Login,
+    FirebaseUIAuth,
     Setup,
 } from '../index';
 
@@ -34,17 +34,15 @@ class AppShell extends Component {
     getAppShell () {
         const {
             classes, 
-            // user
+            user
         } = this.props;
-        
-        // console.log ('getAppShell -> user', user);
+        console.log ('getAppShell -> user', user);
         
         return (
             <React.Fragment>
                 <div className={cn(classes.app)}>
-                <Card className={cn(classes.card, classes.pageObj)}>
-                    {/* { user === null ? <Login /> : null } */}
-                    <Setup />
+                <Card className={cn(classes.card, classes.hundredHigh)}>
+                    { user === null ? <FirebaseUIAuth /> : <Setup /> }
                 </Card>
                         
                     <AppBar 
@@ -58,11 +56,11 @@ class AppShell extends Component {
                         <Fab 
                             onClick={(e) => {
                                 e.preventDefault();
-                                dispatchAction({type: `SYSTEM/OPEN/NEWISSUE`});
+                                dispatchAction({type: `STARTOVER`});
                                 // console.log ('newIssue');
                             }}
                             color="primary" 
-                            aria-label="New Issue" 
+                            aria-label="STARTOVER" 
                             className={classes.fabButton}>
                             <AddIcon />
                         </Fab>

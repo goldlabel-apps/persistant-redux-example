@@ -17,7 +17,7 @@ import {
 } from '@material-ui/core/';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-class ScreenFirebaseUI extends Component {
+class LoginStatus extends Component {
 
   state = {
     isSignedIn: false,
@@ -25,11 +25,7 @@ class ScreenFirebaseUI extends Component {
 
   uiConfig = {
     signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      // firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
     ],
     callbacks: {
       signInSuccessWithAuthResult: () => false
@@ -41,8 +37,8 @@ class ScreenFirebaseUI extends Component {
         (user) => {
           this.setState({isSignedIn: !!user});
           if (user !== null){
-            // console.log (user);
-            this.props.runDocsify(null);
+            console.log (user);
+            // this.props.runDocsify(null);
           }
         }
     );
@@ -55,30 +51,19 @@ class ScreenFirebaseUI extends Component {
   render (){
     const { 
         classes,
-        docsifyObj,
+        store,
     } = this.props;
-    const {
-      authTitle,
-      authInstruction,
-    } = docsifyObj;
-    // console.log ('ScreenFirebaseUI', authTitle, authInstruction);
+    
+    // console.log (store.system.content.loginPage.title);
+
     if (!this.state.isSignedIn) {
         return (
           <Card className={cn(classes.authUI)}>
-            {/* <CardHeader
-              title={authTitle}
-              subheader={authInstruction}
-              action={
-                <IconButton aria-label="Settings">
-                  <MoreVertIcon />
-                </IconButton>
-              }
-            />   */}
             <Typography variant={`h5`}>
-              {authTitle}
+              {store.system.content.loginPage.title}
             </Typography>
             <Typography variant={`body1`}>
-              {authInstruction}
+              {store.system.content.loginPage.subTitle}
             </Typography>
             <CardContent>
               <StyledFirebaseAuth 
@@ -107,11 +92,11 @@ class ScreenFirebaseUI extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        docsifyObj: store.docsify.docsifyObj,
+        store,
         firebaseConfig: store.top.firebaseConfig,
 	};
 };
 
 export default (
-	connect(mapStateToProps, null)(withStyles(styles, { withTheme: true })(ScreenFirebaseUI))
+	connect(mapStateToProps, null)(withStyles(styles, { withTheme: true })(LoginStatus))
 );
