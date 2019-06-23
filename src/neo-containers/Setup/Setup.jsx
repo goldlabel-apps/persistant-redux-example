@@ -1,41 +1,46 @@
-
 import React, { Component } from 'react';
+import firebase from 'firebase/app';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './Setup.Style';
 import {
-//    Avatar,
+    Avatar,
     IconButton,
     Card,
     CardContent,
     CardHeader,
     Tooltip,
 } from '@material-ui/core/';
-import IconRestart from '@material-ui/icons/Refresh';
+import IconRestart from '@material-ui/icons/ExitToAppRounded';
 import dispatchAction from '../../store/dispatchAction';
-import { Orgs } from './Orgs';
+// import { Orgs } from './Orgs';
 
 class Setup extends Component {
+
+    componentDidMount (){
+        // dispatchAction({type:`GITHUB/API/PING`});
+        
+    }
 
     render (){
         const { 
             classes,
             user,
         } = this.props;
-        console.log ('orgsHidden', user.orgsHidden)
+        console.log ('Get orgs');
         return (
             <div className={cn(classes.setup)}>
                 <Card className={cn(classes.card, classes.hundredHigh)}>
                     <CardHeader
-                        title={user.username}
+                        title={user.displayName}
                         subheader={user.email}
-                        // avatar={
-                        //     <Avatar 
-                        //         aria-label={`GitHub`}
-                        //         src={`/png/octocat.png`} 
-                        //         className={cn(classes.avatar)} />
-                        // }
+                        avatar={
+                            <Avatar 
+                                aria-label={`GitHub`}
+                                src={user.photoURL} 
+                                className={cn(classes.avatar)} />
+                        }
                         action={
                             <Tooltip title={`Start Over`}>
                                 <IconButton
@@ -44,6 +49,7 @@ class Setup extends Component {
                                     onClick={(e) => {
                                         e.preventDefault();
                                         dispatchAction({type:`STARTOVER`});
+                                        firebase.auth().signOut();
                                     }}
                                 >
                                     <IconRestart />
@@ -52,7 +58,8 @@ class Setup extends Component {
                         }
                     />
                     <CardContent>
-                       <Orgs orgs={user.orgs} classes={classes} />
+                       {/* <Orgs orgs={user.orgs} classes={classes} /> */}
+                       Orgs
                     </CardContent>
 
                 </Card>
@@ -63,7 +70,7 @@ class Setup extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        user: store.user,
+        user: store.auth.user,
 	};
 };
 

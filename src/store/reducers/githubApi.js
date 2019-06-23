@@ -1,14 +1,21 @@
 
 export default function githubApi (state = {
   updated: Date.now(),
-  authing: false,
-  user: null,
+  orgs: null,
 }, action ) {
 
   switch (action.type) {
+
+    case 'GITHUBAPI/GET/ORGS/START':
+      console.log ('GITHUBAPI/GET/ORGS/START', action);
+      return {
+          ...state,
+          updated: Date.now(),
+      };
         
-    case 'GITHUB/API/PING':
-        console.log ('reducer -> githubApi -> GITHUB/API/PING', action);
+    case 'GITHUBAPI/GET/ORGS':
+        console.log ('reducer -> githubApi -> GITHUBAPI/GET/ORGS', action);
+
         return {
             ...state,
             updated: Date.now(),

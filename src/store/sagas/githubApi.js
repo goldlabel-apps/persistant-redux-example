@@ -6,16 +6,16 @@ import {
     all 
 } from 'redux-saga/effects';
 
-export function* githubApiPing(payload) {
+export function* githubApiGetOrgs(payload) {
     console.log ('githubApi Saga -> githubApiPing', payload);
-    yield put({ 
-        type: 'GITHUB/API/PING',
-        payload,
-    })
+    // yield put({ 
+    //     type: 'GITHUB/API/PING',
+    //     payload,
+    // })
 }
 
 export function* watchAuth() {
-    yield takeEvery('GITHUB/API/PING', githubApiPing);
+    yield takeEvery('GITHUBAPI/GET/ORGS', githubApiGetOrgs);
 }
 
 export default function* authSaga() {
