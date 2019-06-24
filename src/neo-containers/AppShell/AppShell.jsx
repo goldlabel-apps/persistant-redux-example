@@ -22,6 +22,7 @@ import AddIcon from '@material-ui/icons/Refresh';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
 import { 
+    Confirm,
     NewIssue,
     LoginForm,
     Setup,
@@ -37,6 +38,7 @@ class AppShell extends Component {
         } = this.props;
         return (
             <React.Fragment>
+                <Confirm />
                 <div className={cn(classes.app)}>
                 <Card className={cn(classes.card, classes.hundredHigh)}>
                     { user === null ? 

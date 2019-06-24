@@ -11,12 +11,10 @@ const initialState = {
     userPage:{
       title: `User Page`,
       subTitle: `Do user shit`,
-      media: `youtube`,
     },
     loginPage:{
       title: `Agile PWA`,
-      subTitle: `Sign in to your github account`,
-      media: `github`,
+      subTitle: `A Progressive Web App for Teams using Github`,
     }
   }
 };
