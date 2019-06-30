@@ -22,8 +22,14 @@ class LoginForm extends Component {
         const { 
             classes,
             loginPage,
+            auth,
         } = this.props;
-        // console.log ('loginPage', loginPage);
+        const {
+            username,
+            password
+        } = auth;
+        console.log ('LoginForm', username);
+
         return (
             <form
                 name={`login`} 
@@ -55,6 +61,7 @@ class LoginForm extends Component {
                             id={`username`}
                             label={`Username`}
                             variant="outlined"
+                            value={username}
                             onKeyPress={(e) => {
                                 console.log(`Pressed keyCode ${e.key}`);
                                 if (e.key === 'Enter') {
@@ -69,6 +76,7 @@ class LoginForm extends Component {
                             className={cn(classes.textField)}
                             fullWidth
                             required
+                            value={password}
                             id={`password`}
                             label={`Password`}
                             variant="outlined"
@@ -92,7 +100,7 @@ class LoginForm extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        store,
+        auth: store.auth,
         loginPage: store.system.content.loginPage,
 	};
 };

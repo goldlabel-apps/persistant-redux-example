@@ -2,6 +2,8 @@
 const initialState = {
   updated: Date.now(),
   user: null,
+  username: `sasadfd`,
+  password: `dof`,
 };
 
 export default function auth (state = initialState, action ) {
