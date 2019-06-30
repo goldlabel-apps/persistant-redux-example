@@ -18,16 +18,16 @@ import {
 class Confirm extends Component {
 
     state = {
-        isOpen: true,
+        isOpen: false,
         fullScreen: false,
     }
 
     render (){
         const { 
             classes,
-            store
+            // store
         } = this.props;
-        console.log ('store', store.auth);
+        // console.log ('store', store.auth);
         return (
             <Dialog
                 aria-label="Dialog"
