@@ -2,23 +2,26 @@
 const initialState = {
   updated: Date.now(),
   user: null,
-  valid: false,
-  username: ``,
-  password: ``,
-  remember: false,
+  credentials: [
+    {
+      username: ``,
+      password: ``,
+      valid: false,
+      remember: true,
+    }
+  ],
 };
 
 export default function auth (state = initialState, action ) {
 
   switch (action.type) {
 
-    case 'AUTH/USER_UPDATE':
-      console.log ('authReducer -> AUTH/USER_UPDATE', state, action);
+    case 'AUTH/UPDATE_CREDENTIALS':
       return {
         ...state,
         updated: Date.now(),
-        user: action.user
-      };
+        credentials: [action.payload],
+    };
         
     case 'STARTOVER':
       return initialState;

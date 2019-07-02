@@ -19,10 +19,33 @@ import {
 
 class LoginForm extends Component {
 
+    validate = (username, password) => {
+        let isValid = true;
+        if (username === '' || username.length < 2){
+            isValid = false;
+        }
+        if (password === '' || password.length < 2){
+            isValid = false;
+        }
+        return isValid;
+    }
+
     onUpdate = (payload) => {
         const { authUpdate } = this.props;
-        // console.log ('authUpdate', payload);
-        authUpdate (payload);
+        const newUsername = document.getElementById(`username`).value;
+        const newPassword = document.getElementById(`password`).value;
+        let newRemember = document.getElementById(`remember`).value;
+        if (payload.key === `remember`){
+            newRemember = !payload.value;
+        }
+        newRemember = Boolean(newRemember);
+        let newCredentials = {
+            username: newUsername,
+            password: newPassword,
+            valid: this.validate(newUsername, newPassword),
+            remember: newRemember
+        }
+        authUpdate (newCredentials);
     }
 
     render (){
@@ -35,11 +58,12 @@ class LoginForm extends Component {
             password,
             remember,
             valid
-        } = auth;
+        } = auth.credentials[0];
 
         // console.log ('username', username);
         // console.log ('password', password);
         // console.log ('valid', valid);
+        // console.log ('remember', remember);
 
         return (
             <form
@@ -55,13 +79,11 @@ class LoginForm extends Component {
                             autoFocus
                             required
                             id={`username`}
-                            label={`Username`}
+                            label={`GitHub username or email`}
                             variant="outlined"
                             value={username}
                             onKeyPress={(e) => {
-                                // console.log(`Pressed keyCode ${e.key}`);
                                 if (e.key === 'Enter') {
-                                    // Do code here
                                     e.preventDefault();
                                     this.onUpdate({key: `enterpress`, value: null});
                                 }
@@ -79,6 +101,7 @@ class LoginForm extends Component {
                             required
                             value={password}
                             id={`password`}
+                            type={`password`}
                             label={`Password`}
                             variant="outlined"
                             onChange={(e) => {
@@ -92,6 +115,7 @@ class LoginForm extends Component {
                             <Grid item>
                                 <Checkbox
                                     checked={remember}
+                                    id={`remember`}
                                     onChange={(e) => {
                                         e.preventDefault();
                                         this.onUpdate({key: `remember`, value: e.target.value});

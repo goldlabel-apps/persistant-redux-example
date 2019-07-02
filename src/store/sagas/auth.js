@@ -1,21 +1,16 @@
-// import history from '../history';
 
 import { 
-    // put, 
+    put, 
     takeEvery, 
     all 
 } from 'redux-saga/effects';
 
-// export function* authUserUpdate( user = null) {
-//     yield console.log ('user', user)
-// }
 
-export function* authUpdate (payload) {
-    yield console.log ('authSaga -> authUpdate', payload);
-    // yield put({ 
-    //     type: 'GITHUB/API/AUTH',
-    //     payload,
-    // })
+export function* authUpdate (action) {
+    yield put({ 
+        type: 'AUTH/UPDATE_CREDENTIALS',
+        payload: action.payload,
+    })
 }
 
 export function* watchAuth() {
