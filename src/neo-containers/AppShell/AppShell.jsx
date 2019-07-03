@@ -15,12 +15,16 @@ class AppShell extends Component {
     
     render (){
         const { 
-            classes
+            classes,
+            loading,
         } = this.props;
         const {
             user,
         } = this.props.store.auth;
-        const loading = false;
+        
+        // console.log ('loading', loading);
+        // const loading = false;
+        
         return (
             <div className={cn(classes.app)}>
                 <div className={cn(classes.loading)}>
@@ -41,6 +45,7 @@ class AppShell extends Component {
 const mapStateToProps = (store) => {
 	return {
         store,
+        loading: store.top.loading,
 	};
 };
 

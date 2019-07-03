@@ -4,6 +4,7 @@ import auth from './auth';
 
 const initialState = {
   updated: Date.now(),
+  loading: false,
 }
 
 firebase.initializeApp({
