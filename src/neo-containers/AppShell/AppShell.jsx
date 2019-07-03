@@ -7,6 +7,9 @@ import { styles } from './AppShell.Style';
 import {
     LoginForm,
 } from '../index';
+import {
+    LinearProgress,
+} from '@material-ui/core/';
 
 class AppShell extends Component {  
     
@@ -17,8 +20,14 @@ class AppShell extends Component {
         const {
             user,
         } = this.props.store.auth;
+        const loading = false;
         return (
             <div className={cn(classes.app)}>
+                <div className={cn(classes.loading)}>
+
+                </div>
+                { loading ? <LinearProgress /> : null}
+                
                 { user === null ? 
                     <LoginForm /> 
                 : 

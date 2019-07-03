@@ -9,10 +9,16 @@ export const styles = theme => ({
         marginTop: theme.spacing(3),
     },
     rememberText:{
-        paddingTop: theme.spacing(1.25),
+        paddingLeft: theme.spacing(1.25),
+        paddingTop: theme.spacing(1.65),
     },
     rememberHelp:{
-        paddingLeft: theme.spacing(1.25),
-        paddingTop: theme.spacing(1.25),
+    },
+    loginBtn:{
+        marginTop: theme.spacing(1),
+    },
+    loginHeader:{
+        marginBottom: theme.spacing(3),
+        textAlign: 'center',
     }
 });
