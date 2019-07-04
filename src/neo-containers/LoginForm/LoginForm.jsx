@@ -16,7 +16,6 @@ import {
     IconButton,
     TextField,
     Tooltip,
-    Typography,
 } from '@material-ui/core/';
 import DeleteIcon from '@material-ui/icons/HelpOutlined';
 
@@ -86,7 +85,7 @@ class LoginForm extends Component {
         } = auth.credentials[0];
 
 
-        console.log ('authing', authing);
+        // console.log ('authing', authing);
         // console.log ('password', password);
         // console.log ('valid', valid);
         // console.log ('remember', remember);
@@ -98,14 +97,10 @@ class LoginForm extends Component {
                 noValidate
                 autoComplete="off">
                 <Grid container spacing={0}>
-                    <Grid item xs={12} className={cn(classes.loginHeader)}>
-                        <Typography variant={`button`}>
-                        Agile PWA
-                        </Typography>
-                    </Grid>
+                    
                     {authing ? 
                         <Grid item xs={12}>
-                            authing
+                            
                         </Grid>
                     : 
                     <React.Fragment>
@@ -152,6 +147,7 @@ class LoginForm extends Component {
                         <Grid container>
                             <Grid item>
                                 <Checkbox
+                                    color={`primary`}
                                     checked={remember}
                                     id={`remember`}
                                     onChange={(e) => {
@@ -159,7 +155,6 @@ class LoginForm extends Component {
                                         this.onUpdate({key: `remember`, value: e.target.value});
                                     }}
                                     value={remember}
-                                    color="default"
                                     inputProps={{
                                         'aria-label': 'remember',
                                     }}
@@ -168,7 +163,7 @@ class LoginForm extends Component {
 
                             
                             <Grid item className={cn(classes.rememberHelp)}>
-                                <Tooltip placement="top" title={`Lear about User Entities`}>
+                                <Tooltip placement="top" title={`Learn about User Entities`}>
                                     <IconButton
                                         variant={`text`}
                                         onClick={(e) => {
@@ -176,7 +171,7 @@ class LoginForm extends Component {
                                             this.openDocs(`https://docs.listingslab.com/#/md/listingslab/concepts/user_entities`);
                                         }}
                                     >
-                                        <DeleteIcon fontSize="small" />
+                                        <DeleteIcon color={`primary`} fontSize="small" />
                                     </IconButton>
                                 </Tooltip>
                             </Grid>
@@ -192,7 +187,7 @@ class LoginForm extends Component {
                             disabled={!valid}
                             fullWidth
                             className={cn(classes.loginBtn)}
-                            variant={`contained`}
+                            variant={`outlined`}
                             color={`primary`}
                             size={`large`}
                             aria-label={`login`}
