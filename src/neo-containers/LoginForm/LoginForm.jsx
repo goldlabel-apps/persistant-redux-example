@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { 
-    authUpdate 
+    authUpdate,
+    authSignin,
 } from '../../store/actionCreators';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
@@ -13,7 +14,6 @@ import {
     Checkbox,
     Grid,
     IconButton,
-    // SvgIcon,
     TextField,
     Tooltip,
     Typography,
@@ -21,6 +21,15 @@ import {
 import DeleteIcon from '@material-ui/icons/HelpOutlined';
 
 class LoginForm extends Component {
+
+    signIn = () => {
+        const { authSignin } = this.props;
+        const username = document.getElementById(`username`).value;
+        const password = document.getElementById(`password`).value;
+        if (this.validate(username, password)){
+            authSignin({username, password});
+        }
+    }
 
     openDocs = (url) => {
         console.log ('openDocs', url);
@@ -68,6 +77,7 @@ class LoginForm extends Component {
             classes,
             auth,
         } = this.props;
+        const { authing } = auth;
         const {
             username,
             password,
@@ -75,7 +85,8 @@ class LoginForm extends Component {
             valid
         } = auth.credentials[0];
 
-        // console.log ('username', username);
+
+        console.log ('authing', authing);
         // console.log ('password', password);
         // console.log ('valid', valid);
         // console.log ('remember', remember);
@@ -92,45 +103,52 @@ class LoginForm extends Component {
                         Agile PWA
                         </Typography>
                     </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            className={cn(classes.textField)}
-                            fullWidth
-                            autoFocus
-                            required
-                            id={`username`}
-                            label={`GitHub username or email`}
-                            variant="outlined"
-                            value={username}
-                            onKeyPress={(e) => {
-                                if (e.key === 'Enter') {
+                    {authing ? 
+                        <Grid item xs={12}>
+                            authing
+                        </Grid>
+                    : 
+                    <React.Fragment>
+                        <Grid item xs={12}>
+                            <TextField
+                                className={cn(classes.textField)}
+                                fullWidth
+                                autoFocus
+                                required
+                                id={`username`}
+                                label={`GitHub username or email`}
+                                variant="outlined"
+                                value={username}
+                                onKeyPress={(e) => {
+                                    if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        this.onUpdate({key: `enterpress`, value: null});
+                                    }
+                                }}
+                                onChange={(e) => {
                                     e.preventDefault();
-                                    this.onUpdate({key: `enterpress`, value: null});
-                                }
-                            }}
-                            onChange={(e) => {
-                                e.preventDefault();
-                                this.onUpdate({key: `username`, value: e.target.value});
-                            }}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
-                        <TextField
-                            className={cn(classes.textField)}
-                            fullWidth
-                            required
-                            value={password}
-                            id={`password`}
-                            type={`password`}
-                            label={`Password`}
-                            variant="outlined"
-                            onChange={(e) => {
-                                e.preventDefault();
-                                this.onUpdate({key: `password`, value: e.target.value});
-                            }}
-                        />
-                    </Grid>
-                    <Grid item xs={12}>
+                                    this.onUpdate({key: `username`, value: e.target.value});
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                className={cn(classes.textField)}
+                                fullWidth
+                                required
+                                value={password}
+                                id={`password`}
+                                type={`password`}
+                                label={`Password`}
+                                variant="outlined"
+                                onChange={(e) => {
+                                    e.preventDefault();
+                                    this.onUpdate({key: `password`, value: e.target.value});
+                                }}
+                            />
+                        </Grid>
+
+                        <Grid item xs={12}>
                         <Grid container>
                             <Grid item>
                                 <Checkbox
@@ -180,11 +198,16 @@ class LoginForm extends Component {
                             aria-label={`login`}
                             onClick={(e) => {
                                 e.preventDefault();
-                                this.onUpdate({key: `signin`, value: null});
+                                this.signIn();
+                                // this.onUpdate({key: `signin`, value: null});
                             }}>
                                 Sign in
                         </Button>
                     </Grid>
+
+                    
+                    </React.Fragment>
+                    }
                 </Grid>
             </form>
         );
@@ -199,7 +222,8 @@ const mapStateToProps = (store) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        authUpdate
+        authUpdate,
+        authSignin,
     }, dispatch);
   }
 

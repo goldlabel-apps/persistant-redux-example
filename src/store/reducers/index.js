@@ -26,6 +26,14 @@ const top = (state = initialState, action) => {
     case 'STARTOVER':
       return initialState
 
+    case 'TOP/TOGGLE/LOADING':
+      // console.log('top reducer', state, );
+      return {
+        ...state,
+        updated: Date.now(),
+        loading: action.bool,
+      }
+
     default:
       return state
   }

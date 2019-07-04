@@ -6,12 +6,16 @@ import {
 } from 'redux-saga/effects';
 
 
-export function* authLogin(action) {
-    yield console.log ('authLogin', action)
-    // yield put({ 
-    //     type: 'AUTH/UPDATE_CREDENTIALS',
-    //     payload: action.payload,
-    // })
+export function* authSignin(action) {
+    yield console.log ('authSignin', action)
+    yield put({ 
+        type: 'TOP/TOGGLE/LOADING',
+        bool: true,
+    })
+    yield put({ 
+        type: 'AUTH/TOGGLE/AUTHING',
+        bool: true,
+    })
 }
 
 
@@ -24,7 +28,7 @@ export function* authUpdate (action) {
 
 export function* watchAuth() {
     yield takeEvery('AUTH/UPDATE', authUpdate);
-    yield takeEvery('AUTH/LOGIN', authLogin);
+    yield takeEvery('AUTH/SIGNIN', authSignin);
 }
 
 export default function* authSaga() {

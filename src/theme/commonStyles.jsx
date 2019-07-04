@@ -10,7 +10,7 @@ export default theme => ({
     marginTop: theme.spacing(),
   },
   loading: {
-    border: '1px solid red',
-    height: theme.spacing(),
+    // border: '1px solid red',
+    height: theme.spacing(0.5),
   }
 });

@@ -1,7 +1,7 @@
 {
   "name": "agile-pwa",
   "description": "Agile PWA for Github Teams",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "license": "OSL-3.0",
   "main": "./src/",
   "author": {

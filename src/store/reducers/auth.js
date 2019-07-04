@@ -17,6 +17,14 @@ export default function auth (state = initialState, action ) {
 
   switch (action.type) {
 
+    case 'AUTH/TOGGLE/AUTHING':
+      console.log ('AUTH/TOGGLE/AUTHING', action)
+      return {
+        ...state,
+        updated: Date.now(),
+        authing: action.bool,
+    };
+
     case 'AUTH/UPDATE_CREDENTIALS':
       return {
         ...state,

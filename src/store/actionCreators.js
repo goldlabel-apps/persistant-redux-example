@@ -5,3 +5,10 @@ export function authUpdate (payload) {
         payload
     };
 }
+
+export function authSignin (payload) {
+    return { 
+        type: 'AUTH/SIGNIN', 
+        payload
+    };
+}
