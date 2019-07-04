@@ -8,5 +8,9 @@ export default theme => ({
   textField: {
     marginBottom: theme.spacing(),
     marginTop: theme.spacing(),
+  },
+  loading: {
+    border: '1px solid red',
+    height: theme.spacing(),
   }
 });

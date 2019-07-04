@@ -2,6 +2,7 @@
 const initialState = {
   updated: Date.now(),
   user: null,
+  authing: false,
   credentials: [
     {
       username: ``,

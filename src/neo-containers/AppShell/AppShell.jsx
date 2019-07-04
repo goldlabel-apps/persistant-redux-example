@@ -28,10 +28,8 @@ class AppShell extends Component {
         return (
             <div className={cn(classes.app)}>
                 <div className={cn(classes.loading)}>
-
+                    { loading ? <LinearProgress /> : null}
                 </div>
-                { loading ? <LinearProgress /> : null}
-                
                 { user === null ? 
                     <LoginForm /> 
                 : 
