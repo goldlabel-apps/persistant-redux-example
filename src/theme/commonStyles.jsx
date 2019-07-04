@@ -5,6 +5,12 @@ export default theme => ({
     margin: 'auto',
     maxWidth: 450,
   },
+  grow:{
+    flexGrow: 1,
+  },
+  white: {
+    color: 'white',
+  },
   textField: {
     marginBottom: theme.spacing(),
     marginTop: theme.spacing(),

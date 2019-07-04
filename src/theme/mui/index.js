@@ -3,12 +3,11 @@ const theme = {
   palette: {
     "type": "light",
     primary: {
-      main: '#a4b3b6',
+      main: '#8265a7', // light purple
     },
     secondary: {
-      main: '#8265a7',
+      main: '#d93f87', // pink
     },
   },
 }
-
 export default theme;

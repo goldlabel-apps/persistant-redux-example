@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
-import { styles } from './FullscreenDialog.Style';
+import { styles } from './Confirm.Style';
 import {
     Dialog,
     DialogTitle,
@@ -15,7 +15,7 @@ import {
     withMobileDialog,
 } from '@material-ui/core/';
 
-class FullscreenDialog extends Component {
+class Confirm extends Component {
 
     state = {
         isOpen: true,
@@ -93,5 +93,5 @@ const mapStateToProps = (store) => {
 export default (
 	withMobileDialog()(connect(
 		mapStateToProps,null
-	)(withStyles(styles, { withTheme: true })(FullscreenDialog)))
+	)(withStyles(styles, { withTheme: true })(Confirm)))
 );

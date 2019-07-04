@@ -16,8 +16,9 @@ import {
     IconButton,
     TextField,
     Tooltip,
+    Typography,
 } from '@material-ui/core/';
-import DeleteIcon from '@material-ui/icons/HelpOutlined';
+import IconHelp from '@material-ui/icons/HelpOutlined';
 
 class LoginForm extends Component {
 
@@ -112,12 +113,12 @@ class LoginForm extends Component {
                                 required
                                 id={`username`}
                                 label={`GitHub username or email`}
-                                variant="outlined"
+                                variant="filled"
                                 value={username}
                                 onKeyPress={(e) => {
                                     if (e.key === 'Enter') {
                                         e.preventDefault();
-                                        this.onUpdate({key: `enterpress`, value: null});
+                                        this.signIn();
                                     }
                                 }}
                                 onChange={(e) => {
@@ -135,7 +136,7 @@ class LoginForm extends Component {
                                 id={`password`}
                                 type={`password`}
                                 label={`Password`}
-                                variant="outlined"
+                                variant="filled"
                                 onChange={(e) => {
                                     e.preventDefault();
                                     this.onUpdate({key: `password`, value: e.target.value});
@@ -145,6 +146,29 @@ class LoginForm extends Component {
 
                         <Grid item xs={12}>
                         <Grid container>
+
+                            <Grid item className={cn(classes.rememberHelp)}>
+                                <Tooltip placement="top" title={`Learn about User Entities`}>
+                                    <IconButton
+                                        variant={`text`}
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            this.openDocs(`https://docs.listingslab.com/#/md/listingslab/concepts/user_entities`);
+                                        }}>
+                                        <IconHelp className={cn(classes.white)} fontSize="small" />
+                                    </IconButton>
+                                </Tooltip>
+                            </Grid>
+
+                            <Grid item className={cn(classes.rememberText)}>
+                                <Typography 
+                                    variant={`caption`}
+                                    className={cn(classes.white)}>
+                                    Save credentials?
+                                </Typography>
+                            </Grid>
+                            
+                            
                             <Grid item>
                                 <Checkbox
                                     color={`primary`}
@@ -161,44 +185,28 @@ class LoginForm extends Component {
                                 />
                             </Grid>
 
-                            
-                            <Grid item className={cn(classes.rememberHelp)}>
-                                <Tooltip placement="top" title={`Learn about User Entities`}>
-                                    <IconButton
-                                        variant={`text`}
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            this.openDocs(`https://docs.listingslab.com/#/md/listingslab/concepts/user_entities`);
-                                        }}
-                                    >
-                                        <DeleteIcon color={`primary`} fontSize="small" />
-                                    </IconButton>
-                                </Tooltip>
-                            </Grid>
-
-                            <Grid item className={cn(classes.rememberText)}>
-                                Save credentials on this device?
+                            <Grid item className={cn(classes.grow)} />
+                                
+                            <Grid item>
+                                <Button
+                                    disabled={!valid}
+                                    className={cn(classes.loginBtn)}
+                                    variant={`contained`}
+                                    color={`secondary`}
+                                    size={`large`}
+                                    aria-label={`login`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        this.signIn();
+                                        // this.onUpdate({key: `signin`, value: null});
+                                    }}>
+                                        Sign in
+                                </Button>
                             </Grid>
 
                         </Grid>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Button
-                            disabled={!valid}
-                            fullWidth
-                            className={cn(classes.loginBtn)}
-                            variant={`outlined`}
-                            color={`primary`}
-                            size={`large`}
-                            aria-label={`login`}
-                            onClick={(e) => {
-                                e.preventDefault();
-                                this.signIn();
-                                // this.onUpdate({key: `signin`, value: null});
-                            }}>
-                                Sign in
-                        </Button>
-                    </Grid>
+
 
                     
                     </React.Fragment>

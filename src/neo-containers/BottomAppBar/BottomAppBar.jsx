@@ -1,5 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { 
+  topReset,
+} from '../../store/actionCreators';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './BottomAppBar.Style';
 import cn from 'classnames';
@@ -34,7 +38,7 @@ function BottomAppBar(props) {
           <div className={cn(classes.grow)} />
             {showFab ?
               <Fab
-                color={`secondary`}
+                color={`primary`}
                 className={cn(classes.fabButton)}
                 onClick={(e) => {
                   e.preventDefault();
@@ -84,9 +88,9 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-
-  };
+  return bindActionCreators({
+    topReset,
+  }, dispatch);
 };
 
 export default (

@@ -13,6 +13,7 @@ import { styles } from './AppShell.Style';
 import {
     LoginForm,
     BottomAppBar,
+    Confirm,
 } from '../index';
 import {
     Grid,
@@ -37,6 +38,7 @@ class AppShell extends Component {
         
         return (
             <MuiThemeProvider theme={theme}>
+                <Confirm />
                 <React.Fragment>
                     <div className={cn(classes.loading)}>
                         { loading ? <LinearProgress /> : null}

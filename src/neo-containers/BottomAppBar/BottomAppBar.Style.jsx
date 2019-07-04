@@ -17,10 +17,12 @@ export const styles = theme => ({
   appBar: {
     top: 'auto',
     bottom: 0,
+    background: 'none',
+    boxShadow: 'none',
   },
   toolbar: {
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between',    
   },
   fabButton: {
     position: 'absolute',

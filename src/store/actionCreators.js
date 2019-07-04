@@ -1,4 +1,10 @@
 
+export function topReset () {
+    return { 
+        type: 'TOP/RESET'
+    };
+}
+
 export function authUpdate (payload) {
     return { 
         type: 'AUTH/UPDATE', 
