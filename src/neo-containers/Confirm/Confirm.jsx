@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import dispatchAction from '../../store/dispatchAction';
 import { withStyles } from '@material-ui/core/styles';
-import cn from 'classnames';
 import { styles } from './Confirm.Style';
 import {
     Dialog,
@@ -17,64 +16,69 @@ import {
 
 class Confirm extends Component {
 
-    state = {
-        isOpen: true,
-        fullScreen: true,
+    static defaultProps = {
+        title: `Please confirm...`,
+        description: `You wish to perform this action which usually cannot be undone`,
+        confirmText: `Yes Please`,
+        cancelText: `No Thanks`,
+        confirmFunc: (e) => {
+            console.log ('[CONFIRMED]');
+        },
     }
 
     render (){
         const { 
-            classes
+            confirm,
         } = this.props;
-        // const { restrictAccess } = this.props.store.docsify;
-
-        let open = false;
-        
-        // console.log ('restrictAccess', restrictAccess);
+        console.log ('confirm', confirm);
+        if (!confirm){
+            return null;
+        }
         return (
             <Dialog
-                aria-label="Dialog"
-                className={cn(classes.newIssue)}
-                fullScreen={this.state.fullScreen}
-                open={open}
-                onClose={() => {
-                    this.setState({isOpen: false});
-                    // dispatchAction({type: `SYSTEM/CLOSE/NEWISSUE`})}
+                aria-label={`Confirm`}
+                open={true}
+                fullScreen={this.props.fullScreen}
+                onClose={(e) => {
+                    // this.setState({isOpen: false});
+                    e.preventDefault();
+                    console.log ('[CLOSE]')
                 }}
                 maxWidth={`md`}
             >
                 <DialogTitle id="new-issue">
-                    {`Confirm`}
+                    {this.props.title}
                 </DialogTitle>
 
                 <DialogContent>
                     <DialogContentText>
-                        You cannot currently log into this App. 
-                        For technical reasons.
+                        {this.props.description}
                     </DialogContentText>
                 </DialogContent>
 
                 <DialogActions>
                     
                     <Button 
+                        aria-label={`cancel`}
                         onClick={(e) => {
                             e.preventDefault();
-                            this.setState({isOpen: false});
+                            console.log ('[CLOSE]');
                         }} 
                         color={`secondary`}>
-                        No
+                        {this.props.cancelText}
                     </Button>
 
                     <Button 
-                        aria-label={`understood`}
+                        aria-label={`confirm`}
                         // autoFocus
                         variant={`contained`}
                         onClick={(e) => {
                             e.preventDefault();
-                            this.setState({isOpen: false});
+                            this.props.confirmFunc(e);
+                            console.log ('[CLOSE]');
                         }} 
                         color={`primary`}>
-                        Understood
+                        {this.props.confirmText}
                     </Button>
 
                 </DialogActions>
@@ -85,7 +89,7 @@ class Confirm extends Component {
 
 const mapStateToProps = (store) => {
 	return {
-        store,
+        confirm: store.top.confirm,
         // confirm: store.system.confirm
 	};
 };

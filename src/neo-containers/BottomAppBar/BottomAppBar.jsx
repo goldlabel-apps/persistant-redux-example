@@ -42,6 +42,7 @@ function BottomAppBar(props) {
                 className={cn(classes.fabButton)}
                 onClick={(e) => {
                   e.preventDefault();
+                  console.log ('confirm');
                   // open confirm
                   // window.location.assign(`/`);
                 }}>
