@@ -24,8 +24,17 @@ const top = (state = initialState, action) => {
   // console.log('top reducer', action.type);
   
   switch (action.type) {   
-    case 'STARTOVER':
+    case 'TOP/RESET':
+      console.log ('TOP/RESET', initialState);
       return initialState
+
+    case 'TOP/CONFIRM':
+      console.log('TOP/CONFIRM', state,  action.payload);
+      return {
+        ...state,
+        updated: Date.now(),
+        confirm: action.payload,
+      }
 
     case 'TOP/TOGGLE/LOADING':
       // console.log('top reducer', state, );

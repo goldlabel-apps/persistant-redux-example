@@ -1,6 +1,10 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { 
+    topConfirm,
+  } from '../../store/actionCreators';
 import logo from '../../theme/svg/logo.svg';
 import muiTheme from '../../theme/mui';
 import { 
@@ -20,7 +24,14 @@ import {
     LinearProgress,
 } from '@material-ui/core/';
 
-class AppShell extends Component {  
+class AppShell extends Component {
+
+    componentDidMount () {
+        const { 
+            topConfirm,
+        } = this.props;
+        topConfirm (false);
+    }
     
     render (){
         const { 
@@ -62,6 +73,12 @@ class AppShell extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+      topConfirm,
+    }, dispatch);
+  };
+
 const mapStateToProps = (store) => {
 	return {
         store,
@@ -72,6 +89,6 @@ const mapStateToProps = (store) => {
 export default (
 	connect(
 		mapStateToProps,
-        null
+        mapDispatchToProps
 	)(withStyles(styles, { withTheme: true })(AppShell))
 );

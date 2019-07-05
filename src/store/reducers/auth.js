@@ -32,7 +32,7 @@ export default function auth (state = initialState, action ) {
         credentials: [action.payload],
     };
         
-    case 'STARTOVER':
+    case 'TOP/RESET':
       return initialState;
 
     default:

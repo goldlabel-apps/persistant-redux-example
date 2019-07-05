@@ -5,6 +5,13 @@ export function topReset () {
     };
 }
 
+export function topConfirm (payload) {
+    return { 
+        type: 'TOP/CONFIRM', 
+        payload
+    };
+}
+
 export function authUpdate (payload) {
     return { 
         type: 'AUTH/UPDATE', 

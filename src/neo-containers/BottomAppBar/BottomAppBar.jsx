@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { 
   topReset,
+  topConfirm,
 } from '../../store/actionCreators';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './BottomAppBar.Style';
@@ -20,6 +21,8 @@ import IconBack from '@material-ui/icons/Home';
 function BottomAppBar(props) {
   const {
     classes,
+    topConfirm,
+    topReset,
   } = props;
 
   const showFab = true;
@@ -31,9 +34,6 @@ function BottomAppBar(props) {
         position={`fixed`}
         color={`primary`}
         className={cn(classes.appBar)}>
-
-        
-
           <Toolbar className={classes.toolbar}>
           <div className={cn(classes.grow)} />
             {showFab ?
@@ -42,9 +42,16 @@ function BottomAppBar(props) {
                 className={cn(classes.fabButton)}
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log ('confirm');
-                  // open confirm
-                  // window.location.assign(`/`);
+                  topConfirm({
+                    title: `Warning`,
+                    description: `Are you sure you want to reset to factory settings?`,
+                    confirmText: `Yes`,
+                    cancelText: `Cancel`,
+                    confirmFunc: (e) => {
+                        console.log ('[WE ARE CONFIRMED]. do it');
+                        topReset();
+                    },
+                  });
                 }}>
                 <IconFab />
               </Fab>
@@ -91,6 +98,7 @@ const mapStateToProps = (store) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     topReset,
+    topConfirm,
   }, dispatch);
 };
 

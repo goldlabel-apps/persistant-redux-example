@@ -1,7 +1,11 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import dispatchAction from '../../store/dispatchAction';
+import { bindActionCreators } from 'redux';
+import { 
+    topReset,
+    topConfirm,
+  } from '../../store/actionCreators';
 import { withStyles } from '@material-ui/core/styles';
 import { styles } from './Confirm.Style';
 import {
@@ -16,21 +20,11 @@ import {
 
 class Confirm extends Component {
 
-    static defaultProps = {
-        title: `Please confirm...`,
-        description: `You wish to perform this action which usually cannot be undone`,
-        confirmText: `Yes Please`,
-        cancelText: `No Thanks`,
-        confirmFunc: (e) => {
-            console.log ('[CONFIRMED]');
-        },
-    }
-
     render (){
         const { 
             confirm,
+            topConfirm
         } = this.props;
-        console.log ('confirm', confirm);
         if (!confirm){
             return null;
         }
@@ -40,19 +34,18 @@ class Confirm extends Component {
                 open={true}
                 fullScreen={this.props.fullScreen}
                 onClose={(e) => {
-                    // this.setState({isOpen: false});
                     e.preventDefault();
-                    console.log ('[CLOSE]')
+                    topConfirm(false);
                 }}
                 maxWidth={`md`}
             >
                 <DialogTitle id="new-issue">
-                    {this.props.title}
+                    {confirm.title}
                 </DialogTitle>
 
                 <DialogContent>
                     <DialogContentText>
-                        {this.props.description}
+                        {confirm.description}
                     </DialogContentText>
                 </DialogContent>
 
@@ -62,23 +55,22 @@ class Confirm extends Component {
                         aria-label={`cancel`}
                         onClick={(e) => {
                             e.preventDefault();
-                            console.log ('[CLOSE]');
+                            topConfirm(false);
                         }} 
                         color={`secondary`}>
-                        {this.props.cancelText}
+                        {confirm.cancelText}
                     </Button>
 
                     <Button 
+                        autoFocus
+                        color={`secondary`}
                         aria-label={`confirm`}
-                        // autoFocus
                         variant={`contained`}
                         onClick={(e) => {
                             e.preventDefault();
-                            this.props.confirmFunc(e);
-                            console.log ('[CLOSE]');
-                        }} 
-                        color={`primary`}>
-                        {this.props.confirmText}
+                            this.props.confirm.confirmFunc();
+                        }}>
+                        {confirm.confirmText}
                     </Button>
 
                 </DialogActions>
@@ -87,15 +79,22 @@ class Confirm extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+      topReset,
+      topConfirm,
+    }, dispatch);
+  };
+
 const mapStateToProps = (store) => {
 	return {
         confirm: store.top.confirm,
-        // confirm: store.system.confirm
 	};
 };
 
 export default (
 	withMobileDialog()(connect(
-		mapStateToProps,null
+        mapStateToProps,
+        mapDispatchToProps
 	)(withStyles(styles, { withTheme: true })(Confirm)))
 );
