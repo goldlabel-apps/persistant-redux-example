@@ -18,18 +18,11 @@ firebase.initializeApp({
   appId: process.env.REACT_APP_FIREBASE_APPID
 })
 
-
 const top = (state = initialState, action) => {
   
-  // console.log('top reducer', action.type);
-  
   switch (action.type) {   
-    case 'TOP/RESET':
-      console.log ('TOP/RESET', initialState);
-      return initialState
 
     case 'TOP/CONFIRM':
-      console.log('TOP/CONFIRM', state,  action.payload);
       return {
         ...state,
         updated: Date.now(),
@@ -37,15 +30,17 @@ const top = (state = initialState, action) => {
       }
 
     case 'TOP/TOGGLE/LOADING':
-      // console.log('top reducer', state, );
       return {
         ...state,
         updated: Date.now(),
         loading: action.bool,
       }
 
+    case 'TOP/RESET':
+      return initialState;
+
     default:
-      return state
+      return state;
   }
 }
 
