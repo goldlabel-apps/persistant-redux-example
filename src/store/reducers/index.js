@@ -6,6 +6,7 @@ const initialState = {
   updated: Date.now(),
   loading: false,
   confirm: false,
+  message: false,
 }
 
 firebase.initializeApp({

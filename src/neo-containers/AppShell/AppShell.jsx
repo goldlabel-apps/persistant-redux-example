@@ -15,9 +15,10 @@ import { withStyles } from '@material-ui/core/styles';
 import cn from 'classnames';
 import { styles } from './AppShell.Style';
 import {
-    LoginForm,
     BottomAppBar,
     Confirm,
+    LoginForm,
+    // Message,
 } from '../index';
 import {
     Grid,
@@ -50,6 +51,7 @@ class AppShell extends Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <Confirm />
+                {/* <Message /> */}
                 <React.Fragment>
                     <div className={cn(classes.loading)}>
                         { loading ? <LinearProgress /> : null}
